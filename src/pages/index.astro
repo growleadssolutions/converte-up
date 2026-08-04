@@ -1,0 +1,2284 @@
+---
+import CtaButton from "../components/CtaButton.astro";
+import HomeHero from "../components/HomeHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+
+const services = [
+  {
+    number: "01",
+    title: "SEO Local",
+    text: "Apareca quando o cliente procura seu servico.",
+    items: ["Conteudo estrategico", "Google Business"],
+  },
+  {
+    number: "02",
+    title: "Google Ads",
+    text: "Campanhas voltadas para geracao de demanda.",
+    items: ["Landing pages", "Conversao"],
+  },
+  {
+    number: "03",
+    title: "Sites estrategicos",
+    text: "Paginas preparadas para explicar valor e gerar contato.",
+    items: ["Copy comercial", "Design responsivo"],
+  },
+  {
+    number: "04",
+    title: "Sistemas",
+    text: "Ferramentas para organizar atendimento, processos e dados.",
+    items: ["Automacoes", "Painel interno"],
+  },
+];
+
+const engineNotes = [
+  {
+    id: "seo",
+    label: "SEO",
+    text: "Constrói presença organica para capturar clientes que ja procuram por servico, cidade, bairro e solucao.",
+  },
+  {
+    id: "ads",
+    label: "Google Ads",
+    text: "Compra demanda com rota clara: termo buscado, anuncio, pagina certa e contato mensuravel.",
+  },
+  {
+    id: "pagina",
+    label: "Pagina estrategica",
+    text: "Organiza promessa, prova, servicos e objecoes para o visitante entender rapidamente por que chamar.",
+  },
+  {
+    id: "copy",
+    label: "Copy + Conversao",
+    text: "Transforma atencao em decisao com mensagem comercial, hierarquia visual e chamadas para acao.",
+  },
+  {
+    id: "contato",
+    label: "WhatsApp / Ligacao",
+    text: "Remove atrito no ultimo passo para o lead virar conversa, orcamento, agenda ou visita.",
+  },
+];
+
+const acquisitionTimeline = [
+  {
+    step: "01",
+    icon: "diagnosis",
+    title: "Diagnóstico",
+    text: "Entendemos seu negócio, mercado, concorrentes e oportunidades.",
+  },
+  {
+    step: "02",
+    icon: "structure",
+    title: "Estrutura",
+    text: "Criamos ou reorganizamos o site para que ele seja rápido, claro e preparado para converter.",
+  },
+  {
+    step: "03",
+    icon: "acquisition",
+    title: "Aquisição",
+    text: "Implementamos SEO, Google Ads e Google Business para atrair pessoas com intenção de compra.",
+  },
+  {
+    step: "04",
+    icon: "evolution",
+    title: "Evolução",
+    text: "Produzimos conteúdo, acompanhamos métricas e melhoramos continuamente os resultados.",
+  },
+];
+
+const strategyComparison = [
+  {
+    before: "Site bonito, mas sem visitas",
+    after: "Site preparado para ser encontrado",
+  },
+  {
+    before: "Empresa depende apenas de indicação",
+    after: "Novos clientes chegando pela busca",
+  },
+  {
+    before: "Google Ads sem conversão",
+    after: "Campanhas direcionando para páginas otimizadas",
+  },
+  {
+    before: "Cliente entra e vai embora",
+    after: "Cliente entende o valor e entra em contato",
+  },
+  {
+    before: "Sem métricas",
+    after: "Decisões baseadas em dado",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Quando conheci a ConverteUp, nossa assistencia tecnica tinha um site, mas ele nao ajudava a trazer clientes. O novo projeto reorganizou toda nossa presenca digital, melhorou nossa visibilidade nas buscas e hoje temos um canal preparado para crescer.",
+    author: "Renata",
+    role: "Proprietaria • Reecell Assistencia Tecnica",
+  },
+  {
+    quote:
+      "Precisavamos mostrar nossos servicos de forma profissional e aparecer melhor no Google. Em poucos dias apos o lancamento do novo site ja comecamos a receber contatos vindos da internet. Hoje temos uma estrutura preparada para continuar crescendo.",
+    author: "Alisson",
+    role: "Proprietario • Top Vip Reformas",
+  },
+  {
+    quote:
+      "A analise realizada pela equipe trouxe uma visao muito alem do design. Foram apontadas oportunidades de usabilidade, posicionamento e comunicacao que agregaram valor ao nosso projeto.",
+    author: "Equipe de projeto",
+    role: "Startup participante do Shark Tank Brasil (projeto academico)",
+  },
+  {
+    quote:
+      "Nosso objetivo era modernizar a presenca digital sem expor a identidade da empresa. O resultado foi um site muito mais organizado, rapido e preparado para atender nossos pacientes.",
+    author: "Cliente do setor de saude",
+    role: "Nome preservado por solicitacao do cliente",
+  },
+];
+
+const faqs = [
+  {
+    question: "A ConverteUp faz apenas o layout?",
+    answer:
+      "Nao. O site e tratado como uma peca comercial: posicionamento, texto, estrutura, SEO, velocidade e conversao entram no escopo.",
+  },
+  {
+    question: "Da para aproveitar um site existente?",
+    answer:
+      "Sim, quando a base permite. Em alguns casos vale melhorar arquitetura, conteudo e CTAs antes de refazer tudo.",
+  },
+  {
+    question: "O site ja sai pronto para anuncios e SEO?",
+    answer:
+      "A estrutura nasce preparada para campanhas, indexacao e mensuracao. Resultados dependem de oferta, mercado, consistencia e concorrencia.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="ConverteUp constroi canais previsiveis de aquisicao com SEO, Google Ads, criacao de sites e sistemas para pequenas e medias empresas."
+    />
+    <meta name="theme-color" content="#183153" />
+    <meta property="og:title" content="ConverteUp | Aquisicao previsivel para empresas locais" />
+    <meta
+      property="og:description"
+      content="SEO, Google Ads, sites e sistemas para atrair clientes, aumentar receita e aparecer mais que o concorrente."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>ConverteUp | Aquisicao previsivel para empresas locais</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteudo</a>
+
+    <header class="site-header" aria-label="Navegacao principal">
+      <a class="brand" href="/" aria-label="ConverteUp inicio">
+        <span class="brand-mark">C</span>
+        <span>ConverteUp</span>
+      </a>
+      <nav>
+        <a href="#problema">Como Funciona</a>
+        <a href="#solucao">Solucao</a>
+        <a href="#servicos">Servicos</a>
+        <a href="#confianca">Resultados</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <CtaButton href="#contato" label="Solicitar diagnostico" variant="secondary" />
+    </header>
+
+    <main id="conteudo">
+      <HomeHero />
+
+      <section class="acquisition-intro" aria-labelledby="acquisition-title">
+        <div class="acquisition-intro__header">
+          <p class="eyebrow">NOSSO MÉTODO</p>
+          <h2 id="acquisition-title">Transformamos presença digital em novos clientes.</h2>
+          <p>
+            O cliente não precisa entender SEO, Google Ads ou tecnologia. Ele precisa enxergar um
+            caminho claro para conquistar novos clientes. É exatamente isso que construímos.
+          </p>
+        </div>
+        <ol class="acquisition-timeline" aria-label="Como funciona a aquisicao">
+          {
+            acquisitionTimeline.map((item) => (
+              <li>
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <span class="timeline-icon" aria-hidden="true">
+                  {
+                    item.icon === "diagnosis" && (
+                      <svg viewBox="0 0 24 24" role="img">
+                        <path d="M9 3h6l1 2h3v16H5V5h3l1-2Z" />
+                        <path d="M9 12h6" />
+                        <path d="M12 9v6" />
+                      </svg>
+                    )
+                  }
+                  {
+                    item.icon === "structure" && (
+                      <svg viewBox="0 0 24 24" role="img">
+                        <path d="M4 5h16v14H4z" />
+                        <path d="M4 9h16" />
+                        <path d="M8 13h8" />
+                        <path d="M8 16h5" />
+                      </svg>
+                    )
+                  }
+                  {
+                    item.icon === "acquisition" && (
+                      <svg viewBox="0 0 24 24" role="img">
+                        <path d="M4 14c4-7 10-7 16-4" />
+                        <path d="m16 6 4 4-4 4" />
+                        <path d="M6 18h12" />
+                      </svg>
+                    )
+                  }
+                  {
+                    item.icon === "evolution" && (
+                      <svg viewBox="0 0 24 24" role="img">
+                        <path d="M4 17h4v3H4z" />
+                        <path d="M10 12h4v8h-4z" />
+                        <path d="M16 7h4v13h-4z" />
+                        <path d="M5 10c4 0 7-2 10-6" />
+                      </svg>
+                    )
+                  }
+                </span>
+                <span class="timeline-step">{item.step}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section class="section strategy-shift" id="problema" aria-labelledby="problem-title">
+        <div class="strategy-shift__header">
+          <p class="eyebrow">ANTES × DEPOIS</p>
+          <h2 id="problem-title">O que muda quando existe uma estratégia.</h2>
+        </div>
+        <div class="comparison-board" aria-label="Comparativo antes e depois da estrategia">
+          <div class="comparison-board__head" aria-hidden="true">
+            <span>Antes</span>
+            <span>Depois</span>
+          </div>
+          <ul>
+            {
+              strategyComparison.map((item) => (
+                <li>
+                  <p class="comparison-item comparison-item--before">
+                    <span aria-hidden="true">×</span>
+                    {item.before}
+                  </p>
+                  <p class="comparison-item comparison-item--after">
+                    <span aria-hidden="true">✓</span>
+                    {item.after}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+
+      <section class="section solution" id="solucao" aria-labelledby="solution-title">
+        <div class="solution-copy">
+          <p class="eyebrow">Solucao</p>
+          <h2 id="solution-title">O Motor da Aquisicao transforma busca em cliente.</h2>
+          <p>
+            A ConverteUp nao trata site, trafego e atendimento como pecas soltas. O trabalho e
+            montar um sistema em que cada canal empurra o proximo passo comercial.
+          </p>
+        </div>
+
+        <div class="acquisition-engine" aria-label="Diagrama do motor da aquisicao">
+          <div class="engine-map">
+            <button class="engine-node engine-node--google" type="button">
+              <span>Google</span>
+            </button>
+            <button class="engine-node engine-node--seo engine-node--interactive" type="button">
+              <span>SEO</span>
+            </button>
+            <button class="engine-node engine-node--ads engine-node--interactive" type="button">
+              <span>Google Ads</span>
+            </button>
+            <button class="engine-node engine-node--pagina engine-node--interactive" type="button">
+              <span>Pagina Estrategica</span>
+            </button>
+            <button class="engine-node engine-node--copy engine-node--interactive" type="button">
+              <span>Copy + Conversao</span>
+            </button>
+            <button class="engine-node engine-node--contato engine-node--interactive" type="button">
+              <span>WhatsApp / Ligacao</span>
+            </button>
+            <button class="engine-node engine-node--sistema" type="button">
+              <span>Sistema</span>
+            </button>
+            <button class="engine-node engine-node--cliente" type="button">
+              <span>Cliente</span>
+            </button>
+
+            <span class="engine-line engine-line--google"></span>
+            <span class="engine-line engine-line--seo"></span>
+            <span class="engine-line engine-line--ads"></span>
+            <span class="engine-line engine-line--merge-left"></span>
+            <span class="engine-line engine-line--merge-right"></span>
+            <span class="engine-line engine-line--flow engine-line--to-copy"></span>
+            <span class="engine-line engine-line--flow engine-line--to-contact"></span>
+            <span class="engine-line engine-line--flow engine-line--to-system"></span>
+            <span class="engine-line engine-line--flow engine-line--to-client"></span>
+
+            <div class="engine-notes" aria-live="polite">
+              <p class="engine-note engine-note--default">
+                Passe o mouse ou navegue pelos pontos para ver como cada parte do motor trabalha.
+              </p>
+              {
+                engineNotes.map((item) => (
+                  <p class={`engine-note engine-note--${item.id}`}>
+                    <strong>{item.label}</strong>
+                    {item.text}
+                  </p>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services-section" id="servicos" aria-labelledby="services-title">
+        <div class="services-intro">
+          <h2 id="services-title">Nossos servicos</h2>
+          <p>
+            Cada empresa está em um momento diferente de crescimento. Algumas precisam aparecer no Google, outras transformar visitantes em contatos 
+            ou organizar processos internos. Nossos serviços podem ser contratados separadamente, mas foram desenvolvidos para trabalhar em conjunto,
+           formando um sistema completo de aquisição de clientes.
+          </p>
+        </div>
+        <div class="services-grid">
+          {services.map((service) => <ServiceCard {...service} />)}
+        </div>
+      </section>
+
+      <section class="section trust" id="confianca" aria-labelledby="trust-title">
+        <div class="trust__header">
+          <p class="eyebrow">Depoimentos</p>
+          <h2 id="trust-title">O que os clientes dizem</h2>
+          <p>
+            Estes sao alguns dos projetos em que ajudamos empresas a fortalecer sua presenca
+            digital, conquistar mais visibilidade e criar canais preparados para gerar novos
+            clientes. Cada negocio tem um desafio diferente, mas todos seguiram a mesma filosofia:
+            estrategia antes de ferramenta.
+          </p>
+        </div>
+        <div class="testimonial-carousel" data-testimonial-carousel>
+          <div class="testimonial-viewport">
+            <ul class="testimonial-track">
+              {
+                testimonials.map((item) => (
+                  <li class="testimonial-slide">
+                    <article class="testimonial-card">
+                      <div class="testimonial-stars" aria-label="Avaliacao cinco estrelas">
+                        <span aria-hidden="true">★★★★★</span>
+                      </div>
+                      <blockquote>{item.quote}</blockquote>
+                      <footer>
+                        <strong>{item.author}</strong>
+                        <span>{item.role}</span>
+                      </footer>
+                    </article>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div class="testimonial-controls" aria-label="Controles dos depoimentos">
+            <div class="testimonial-dots" aria-hidden="true">
+              {testimonials.map(() => <span></span>)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section case-study" aria-labelledby="case-title">
+        <div class="case-study__intro">
+          <p class="eyebrow">Case Reecell</p>
+          <h2 id="case-title">Uma loja boa, mas dificil de encontrar.</h2>
+        </div>
+
+        <div class="case-story">
+          <article class="case-frame case-frame--old">
+            <div class="case-browser" aria-label="Representacao do site antigo da Reecell">
+              <div class="case-browser__bar">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="case-browser__body">
+                <div class="case-old-hero"></div>
+                <div class="case-old-lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="case-old-grid">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <p>O site existia, mas funcionava como vitrine. A Reecell dependia de indicacoes e recorrencia enquanto perdia espaco nas buscas locais.</p>
+          </article>
+
+          <div class="case-flow" aria-label="Linha de transformacao do projeto">
+            <span>Site</span>
+            <span>SEO</span>
+            <span>Google Business</span>
+            <span>Ads</span>
+          </div>
+
+          <article class="case-frame case-frame--new">
+            <div class="case-browser" aria-label="Representacao do site novo da Reecell">
+              <div class="case-browser__bar">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="case-browser__body">
+                <div class="case-new-layout">
+                  <div class="case-new-copy">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <strong></strong>
+                  </div>
+                  <div class="case-new-phone"></div>
+                </div>
+                <div class="case-new-services">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <p>O site deixou de ser vitrine e virou canal de aquisicao: paginas por servico, SEO local, Google Business Profile, blog e campanhas conectadas.</p>
+          </article>
+
+          <div class="case-results" aria-label="Resultados do projeto Reecell">
+            <div>
+              <strong>99</strong>
+              <span>PageSpeed</span>
+            </div>
+            <div>
+              <strong>Mais</strong>
+              <span>visibilidade local</span>
+            </div>
+            <div>
+              <strong>≈ R$ 40 mil</strong>
+              <span>diferenca observada em um mes</span>
+            </div>
+          </div>
+
+          <p class="case-disclaimer">
+            O impacto financeiro foi influenciado pelo conjunto das estrategias implementadas e tambem por fatores externos do negocio.
+          </p>
+
+          <a class="case-study__link" href="#contato">Ver o projeto completo</a>
+        </div>
+      </section>
+
+      <section class="contact" id="contato" aria-labelledby="contact-title">
+        <div class="contact__copy">
+          <p class="eyebrow">Contato</p>
+          <h2 id="contact-title">Vamos descobrir onde estao seus proximos clientes.</h2>
+          <p>
+            Receba uma analise inicial da sua presenca digital e descubra quais canais tem maior
+            potencial para gerar contatos, orcamentos e vendas.
+          </p>
+        </div>
+
+        <ul class="contact__benefits" aria-label="Beneficios do diagnostico inicial">
+          <li>Analise de posicionamento</li>
+          <li>Oportunidades de crescimento</li>
+          <li>Pontos que dificultam conversoes</li>
+          <li>Proximos passos recomendados</li>
+        </ul>
+
+        <form class="contact__form" name="diagnostico" method="get" action="mailto:contato@converteup.com.br">
+          <label>
+            Nome
+            <input name="nome" autocomplete="name" placeholder="Seu nome" required />
+          </label>
+          <label>
+            Telefone
+            <input name="telefone" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000" required />
+          </label>
+          <label>
+            <span class="field-label">Assunto ou mensagem <span class="field-optional">(opcional)</span></span>
+            <textarea name="mensagem" placeholder="Conte brevemente como podemos ajudar"></textarea>
+          </label>
+          <button type="submit">Quero meu diagnostico</button>
+          <p>Sem compromisso • resposta pelo WhatsApp</p>
+        </form>
+      </section>
+
+      <section class="section faq" aria-labelledby="faq-title">
+        <SectionHeader
+          eyebrow="FAQ"
+          title="Perguntas antes de comecar."
+          text="Respostas diretas para alinhar expectativa, escopo e prioridade."
+        />
+        <div class="faq-list">
+          {
+            faqs.map((item) => (
+              <details>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="/" aria-label="ConverteUp inicio">
+        <span class="brand-mark">C</span>
+        <span>ConverteUp</span>
+      </a>
+      <p>SEO, Google Ads, sites e sistemas para empresas locais que precisam vender melhor pela internet.</p>
+      <a href="#contato">Solicitar diagnostico</a>
+    </footer>
+  </body>
+</html>
+
+<script is:inline>
+  (() => {
+    const carousel = document.querySelector("[data-testimonial-carousel]");
+    if (!carousel) return;
+
+    const track = carousel.querySelector(".testimonial-track");
+    const slides = Array.from(carousel.querySelectorAll(".testimonial-slide"));
+    const dots = Array.from(carousel.querySelectorAll(".testimonial-dots span"));
+    let index = 0;
+    let timer;
+
+    const visibleCount = () => (window.matchMedia("(min-width: 640px)").matches ? 2 : 1);
+    const maxIndex = () => Math.max(0, slides.length - visibleCount());
+
+    const update = (nextIndex = index) => {
+      index = Math.max(0, Math.min(nextIndex, maxIndex()));
+      track.style.transform = `translateX(-${slides[index].offsetLeft}px)`;
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("is-active", dotIndex === index);
+        dot.hidden = dotIndex > maxIndex();
+      });
+    };
+
+    const advance = (direction) => {
+      const target = index + direction;
+      update(target > maxIndex() ? 0 : target < 0 ? maxIndex() : target);
+    };
+
+    const start = () => {
+      stop();
+      timer = window.setInterval(() => advance(1), 5200);
+    };
+
+    const stop = () => {
+      if (timer) window.clearInterval(timer);
+    };
+
+    dots.forEach((dot, dotIndex) => {
+      dot.addEventListener("click", () => {
+        update(dotIndex);
+        start();
+      });
+    });
+    carousel.addEventListener("mouseenter", stop);
+    carousel.addEventListener("mouseleave", start);
+    carousel.addEventListener("focusin", stop);
+    carousel.addEventListener("focusout", start);
+    window.addEventListener("resize", () => update());
+
+    update(0);
+    start();
+  })();
+</script>
+
+<style is:global>
+  :root {
+    --ink: #183153;
+    --ink-soft: rgba(24, 49, 83, 0.76);
+    --ink-muted: rgba(24, 49, 83, 0.56);
+    --paper: #eeebd3;
+    --paper-strong: #faf8ea;
+    --panel: rgba(250, 248, 234, 0.88);
+    --moss: #5c946e;
+    --lime: #87bfff;
+    --blue: #87bfff;
+    --coral: #679436;
+    --sage: #5c946e;
+    --olive: #679436;
+    --line: rgba(24, 49, 83, 0.15);
+    --shadow: 0 18px 50px rgba(24, 49, 83, 0.11);
+    --radius-button: 8px;
+    --radius-card: 8px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 72px;
+    --space-9: 96px;
+    --space-10: 128px;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Archivo", "Segoe UI", sans-serif;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    min-width: 320px;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Fraunces", Georgia, serif;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  h1 {
+    max-width: 13ch;
+    font-size: 2.7rem;
+    font-weight: 800;
+  }
+
+  h2 {
+    max-width: 13ch;
+    font-size: 2.18rem;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: var(--space-4);
+    left: var(--space-4);
+    z-index: 20;
+    transform: translateY(-160%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-button);
+    background: var(--olive);
+    padding: var(--space-3) var(--space-4);
+    font-weight: 800;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .site-header,
+  .hero,
+  .acquisition-intro,
+  .section,
+  .contact,
+  .site-footer {
+    width: calc(100% - 40px);
+    max-width: 1180px;
+    margin-inline: auto;
+  }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-block: var(--space-5);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: 44px;
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    background: var(--olive);
+    color: #ffffff;
+    font-size: 0.95rem;
+  }
+
+  nav {
+    display: none;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  nav a,
+  .text-link,
+  .site-footer a:not(.brand) {
+    color: var(--ink-soft);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  .text-link:hover,
+  .site-footer a:not(.brand):hover {
+    color: var(--ink);
+  }
+
+  .cta-button,
+  button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-button);
+    background: var(--olive);
+    box-shadow: 6px 6px 0 var(--ink);
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 800;
+    line-height: 1.15;
+    padding: var(--space-3) var(--space-5);
+    text-align: center;
+    text-decoration: none;
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  }
+
+  .cta-button:hover,
+  button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .cta-button--secondary {
+    background: var(--paper-strong);
+    box-shadow: none;
+    color: var(--ink);
+  }
+
+  .site-header .cta-button {
+    display: none;
+  }
+
+  .cta-button:focus-visible,
+  summary:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible {
+    outline: 3px solid rgba(135, 191, 255, 0.72);
+    outline-offset: 4px;
+  }
+
+  .eyebrow {
+    color: var(--moss);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .acquisition-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-block: var(--space-7) var(--space-8);
+  }
+
+  .acquisition-intro h2 {
+    max-width: 18ch;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+  }
+
+  .acquisition-intro__header {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 860px;
+  }
+
+  .acquisition-intro__header p:last-child {
+    max-width: 680px;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+    line-height: 1.68;
+  }
+
+  .acquisition-timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .acquisition-timeline::before {
+    content: none;
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 18px;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(103, 148, 54, 0.82), rgba(92, 148, 110, 0.22));
+    transition: filter 180ms ease, opacity 180ms ease;
+  }
+
+  .acquisition-timeline:hover::before {
+    filter: none;
+    opacity: 0;
+  }
+
+  .acquisition-timeline li {
+    position: relative;
+    display: grid;
+    gap: var(--space-2);
+    padding-left: 58px;
+    transition: transform 180ms ease;
+  }
+
+  .acquisition-timeline li:hover {
+    transform: translateY(-2px);
+  }
+
+  .timeline-dot {
+    position: absolute;
+    top: 7px;
+    left: 11px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--olive);
+    box-shadow: 0 0 0 8px var(--paper);
+    transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .acquisition-timeline li:hover .timeline-dot {
+    background: var(--blue);
+    box-shadow: 0 0 0 8px var(--paper), 0 0 22px rgba(135, 191, 255, 0.82);
+    transform: scale(1.28);
+  }
+
+  .timeline-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    color: var(--ink);
+  }
+
+  .timeline-icon svg {
+    width: 27px;
+    height: 27px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .acquisition-timeline li:hover .timeline-icon svg {
+    color: var(--olive);
+    transform: translateY(-1px) scale(1.06);
+  }
+
+  .timeline-step {
+    color: var(--olive);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+
+  .acquisition-timeline h3 {
+    max-width: 15ch;
+    font-size: 1.45rem;
+  }
+
+  .acquisition-timeline p {
+    max-width: 30ch;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .section-header {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 760px;
+    margin-bottom: var(--space-7);
+  }
+
+  .section-header p:last-child,
+  .split > p,
+  .contact p {
+    color: var(--ink-soft);
+    font-size: 1.06rem;
+  }
+
+  .split {
+    display: grid;
+    gap: var(--space-6);
+    border-block: 1px solid var(--line);
+  }
+
+  .strategy-shift {
+    width: 100%;
+    max-width: none;
+    display: grid;
+    gap: var(--space-7);
+    background: var(--ink);
+    color: var(--paper);
+    padding-inline: max(20px, calc((100vw - 1180px) / 2));
+  }
+
+  .strategy-shift__header {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 720px;
+  }
+
+  .strategy-shift .eyebrow {
+    color: var(--blue);
+  }
+
+  .strategy-shift h2 {
+    max-width: 15ch;
+  }
+
+  .comparison-board {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .comparison-board__head,
+  .comparison-board li {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .comparison-board__head {
+    color: rgba(238, 235, 211, 0.62);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .comparison-board ul {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .comparison-board li {
+    position: relative;
+    border-bottom: 1px solid rgba(238, 235, 211, 0.12);
+    padding-bottom: var(--space-3);
+  }
+
+  .comparison-item {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: var(--space-3);
+    align-items: start;
+    min-height: 48px;
+    color: rgba(238, 235, 211, 0.82);
+    font-weight: 700;
+    line-height: 1.35;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .comparison-item span {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .comparison-item--before span {
+    background: rgba(238, 235, 211, 0.1);
+    color: rgba(238, 235, 211, 0.72);
+  }
+
+  .comparison-item--after {
+    color: #ffffff;
+  }
+
+  .comparison-item--after span {
+    background: var(--olive);
+    color: #ffffff;
+    box-shadow: 0 0 18px rgba(103, 148, 54, 0.38);
+  }
+
+  .comparison-board li:hover .comparison-item--after {
+    color: var(--blue);
+    transform: translateX(4px);
+  }
+
+  .comparison-board li:hover .comparison-item--after span {
+    background: var(--blue);
+    box-shadow: 0 0 22px rgba(135, 191, 255, 0.58);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .services-intro {
+    display: grid;
+    gap: var(--space-3);
+    justify-items: center;
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+
+  .services-intro h2 {
+    max-width: none;
+  }
+
+  .services-intro p {
+    max-width: 720px;
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 1.06rem;
+    line-height: 1.65;
+  }
+
+  details {
+    display: grid;
+    gap: var(--space-4);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    padding: var(--space-5);
+  }
+
+  .service-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    padding: var(--space-5);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(24, 49, 83, 0.34);
+    box-shadow: 0 22px 62px rgba(24, 49, 83, 0.14);
+  }
+
+  .service-card__number {
+    color: var(--olive);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  .service-card__content {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .service-card h3 {
+    position: relative;
+    display: grid;
+    gap: var(--space-4);
+    max-width: none;
+  }
+
+  .service-card h3::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .service-card p,
+  details p,
+  .site-footer p {
+    color: var(--ink-soft);
+  }
+
+  .service-card ul {
+    display: grid;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .service-card li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-weight: 700;
+  }
+
+  .service-card li::before {
+    content: "";
+    position: absolute;
+    top: 0.68em;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--ink);
+    background: var(--lime);
+  }
+
+  .service-card__link {
+    justify-self: end;
+    align-self: end;
+    color: var(--ink);
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .service-card__link span {
+    display: inline-block;
+    margin-left: var(--space-2);
+    transition: transform 160ms ease;
+  }
+
+  .service-card__link:hover span {
+    transform: translateX(4px);
+  }
+
+  .case-study {
+    display: grid;
+    gap: var(--space-7);
+  }
+
+  .case-study__intro {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 880px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .case-study__intro h2 {
+    max-width: 16ch;
+    margin-inline: auto;
+  }
+
+  .case-story {
+    display: grid;
+    gap: var(--space-7);
+  }
+
+  .case-frame {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .case-frame > p {
+    max-width: 760px;
+    margin-inline: auto;
+    color: var(--ink-soft);
+    font-size: 1.12rem;
+    text-align: center;
+  }
+
+  .case-browser {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-card);
+    background: var(--paper-strong);
+    box-shadow: 10px 10px 0 var(--blue);
+  }
+
+  .case-frame--old .case-browser {
+    box-shadow: 10px 10px 0 rgba(24, 49, 83, 0.18);
+  }
+
+  .case-browser__bar {
+    display: flex;
+    gap: var(--space-2);
+    border-bottom: 1px solid var(--line);
+    background: rgba(24, 49, 83, 0.06);
+    padding: var(--space-3);
+  }
+
+  .case-browser__bar span {
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    background: var(--paper);
+  }
+
+  .case-browser__body {
+    display: grid;
+    gap: var(--space-5);
+    min-height: 360px;
+    padding: var(--space-5);
+  }
+
+  .case-old-hero,
+  .case-old-lines span,
+  .case-old-grid span,
+  .case-new-copy span,
+  .case-new-copy strong,
+  .case-new-phone,
+  .case-new-services span {
+    border: 1px solid rgba(24, 49, 83, 0.2);
+    background: rgba(24, 49, 83, 0.08);
+  }
+
+  .case-old-hero {
+    min-height: 128px;
+  }
+
+  .case-old-lines,
+  .case-old-grid,
+  .case-new-services {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .case-old-lines span {
+    height: 14px;
+  }
+
+  .case-old-lines span:nth-child(2) {
+    width: 74%;
+  }
+
+  .case-old-lines span:nth-child(3) {
+    width: 58%;
+  }
+
+  .case-old-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .case-old-grid span {
+    min-height: 86px;
+  }
+
+  .case-new-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    align-items: center;
+    min-height: 230px;
+  }
+
+  .case-new-copy {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .case-new-copy span {
+    height: 14px;
+    background: rgba(103, 148, 54, 0.2);
+  }
+
+  .case-new-copy span:first-child {
+    width: 46%;
+  }
+
+  .case-new-copy span:nth-child(2) {
+    width: 92%;
+    height: 34px;
+    background: rgba(24, 49, 83, 0.16);
+  }
+
+  .case-new-copy span:nth-child(3) {
+    width: 68%;
+  }
+
+  .case-new-copy strong {
+    width: 180px;
+    height: 44px;
+    margin-top: var(--space-2);
+    background: var(--olive);
+  }
+
+  .case-new-phone {
+    min-height: 190px;
+    border-radius: 24px;
+    background:
+      linear-gradient(180deg, rgba(135, 191, 255, 0.42), rgba(103, 148, 54, 0.34)),
+      var(--paper);
+  }
+
+  .case-new-services {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .case-new-services span {
+    min-height: 76px;
+    background: rgba(135, 191, 255, 0.24);
+  }
+
+  .case-flow {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    max-width: 920px;
+    margin-inline: auto;
+    padding-block: var(--space-2);
+  }
+
+  .case-flow::before {
+    content: "";
+    position: absolute;
+    top: -34px;
+    bottom: -34px;
+    left: 18px;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(24, 49, 83, 0.16), var(--olive), rgba(24, 49, 83, 0.16));
+  }
+
+  .case-flow span {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-button);
+    background: var(--paper-strong);
+    box-shadow: 5px 5px 0 rgba(24, 49, 83, 0.12);
+    color: var(--ink);
+    font-weight: 900;
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .case-results {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    border-block: 1px solid var(--line);
+    padding-block: var(--space-5);
+  }
+
+  .case-results div {
+    display: grid;
+    gap: var(--space-1);
+    text-align: center;
+  }
+
+  .case-results strong {
+    color: var(--ink);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(2rem, 7vw, 3.4rem);
+    line-height: 1;
+  }
+
+  .case-results span {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .case-disclaimer {
+    max-width: 780px;
+    margin-inline: auto;
+    color: var(--ink-muted);
+    font-size: 0.92rem;
+    text-align: center;
+  }
+
+  .case-study__link {
+    justify-self: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-button);
+    background: var(--olive);
+    box-shadow: 6px 6px 0 var(--ink);
+    color: #ffffff;
+    font-weight: 800;
+    line-height: 1.15;
+    padding: var(--space-3) var(--space-5);
+    text-align: center;
+    text-decoration: none;
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  }
+
+  .case-study__link:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .solution,
+  .trust {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .solution-copy {
+    display: grid;
+    gap: var(--space-4);
+    align-content: start;
+  }
+
+  .solution-copy h2 {
+    max-width: 11ch;
+  }
+
+  .solution-copy p:not(.eyebrow) {
+    max-width: 42ch;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+  }
+
+  .acquisition-engine {
+    display: grid;
+    padding-block: var(--space-2);
+    overflow: hidden;
+  }
+
+  .engine-map {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 13px;
+    min-height: 558px;
+    padding-block: var(--space-3);
+  }
+
+  .engine-node {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    min-height: 52px;
+    border: 1px solid rgba(24, 49, 83, 0.28);
+    border-radius: var(--radius-button);
+    background: rgba(238, 235, 211, 0.92);
+    color: var(--ink);
+    box-shadow: 6px 6px 0 rgba(24, 49, 83, 0.1);
+    cursor: default;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .engine-node span {
+    font-weight: 900;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .engine-node--interactive {
+    cursor: pointer;
+  }
+
+  .engine-node--google,
+  .engine-node--cliente {
+    background: var(--ink);
+    color: #ffffff;
+  }
+
+  .engine-node--sistema {
+    background: var(--olive);
+    color: #ffffff;
+  }
+
+  .engine-node--interactive:hover,
+  .engine-node--interactive:focus-visible {
+    transform: translateY(-3px);
+    border-color: var(--ink);
+    background: var(--blue);
+    box-shadow: 8px 8px 0 rgba(24, 49, 83, 0.2);
+    outline: none;
+  }
+
+  .engine-line {
+    display: none;
+  }
+
+  .engine-notes {
+    display: grid;
+    align-content: start;
+    min-height: 70px;
+    border-left: 4px solid var(--olive);
+    padding: var(--space-2) 0 var(--space-2) var(--space-4);
+  }
+
+  .engine-note {
+    grid-area: 1 / 1;
+    color: var(--ink-soft);
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .engine-note strong {
+    display: block;
+    margin-bottom: var(--space-2);
+    color: var(--ink);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.28rem;
+    line-height: 1.05;
+  }
+
+  .engine-note--default {
+    opacity: 1;
+    transform: none;
+  }
+
+  .engine-map:has(.engine-node--interactive:hover) .engine-note--default,
+  .engine-map:has(.engine-node--interactive:focus-visible) .engine-note--default {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  .engine-map:has(.engine-node--seo:hover) .engine-note--seo,
+  .engine-map:has(.engine-node--seo:focus-visible) .engine-note--seo,
+  .engine-map:has(.engine-node--ads:hover) .engine-note--ads,
+  .engine-map:has(.engine-node--ads:focus-visible) .engine-note--ads,
+  .engine-map:has(.engine-node--pagina:hover) .engine-note--pagina,
+  .engine-map:has(.engine-node--pagina:focus-visible) .engine-note--pagina,
+  .engine-map:has(.engine-node--copy:hover) .engine-note--copy,
+  .engine-map:has(.engine-node--copy:focus-visible) .engine-note--copy,
+  .engine-map:has(.engine-node--contato:hover) .engine-note--contato,
+  .engine-map:has(.engine-node--contato:focus-visible) .engine-note--contato {
+    opacity: 1;
+    transform: none;
+  }
+
+  .trust__header {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 720px;
+  }
+
+  .trust__header p:not(.eyebrow) {
+    color: var(--ink-soft);
+    font-size: 1.06rem;
+    line-height: 1.62;
+  }
+
+  .testimonial-carousel {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .testimonial-viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .testimonial-track {
+    display: flex;
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: transform 280ms ease;
+    will-change: transform;
+  }
+
+  .testimonial-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+
+  .testimonial-card {
+    display: grid;
+    gap: var(--space-4);
+    height: 100%;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    padding: var(--space-5);
+  }
+
+  .testimonial-stars {
+    color: var(--olive);
+    font-size: 1.04rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+
+  .testimonial-card blockquote {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    line-height: 1.62;
+  }
+
+  .testimonial-card footer {
+    display: grid;
+    gap: var(--space-1);
+    align-self: end;
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-4);
+  }
+
+  .testimonial-card strong {
+    color: var(--ink);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.18rem;
+    line-height: 1.05;
+  }
+
+  .testimonial-card footer span {
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .testimonial-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .testimonial-dots {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .testimonial-dots span {
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  .testimonial-dots span.is-active {
+    background: var(--olive);
+  }
+
+  .contact {
+    display: grid;
+    grid-template-areas:
+      "copy"
+      "form"
+      "benefits";
+    gap: var(--space-5);
+    align-items: start;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    margin-block: var(--space-8);
+    background: var(--paper-strong);
+    padding: var(--space-6);
+  }
+
+  .contact__copy {
+    grid-area: copy;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .contact__copy h2 {
+    max-width: 13ch;
+  }
+
+  .contact__benefits {
+    grid-area: benefits;
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contact__benefits li {
+    position: relative;
+    padding-left: var(--space-5);
+    color: var(--ink);
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .contact__benefits li::before {
+    content: "";
+    position: absolute;
+    top: 0.58em;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border: 1px solid var(--ink);
+    background: var(--olive);
+  }
+
+  .contact__form {
+    grid-area: form;
+    display: grid;
+    gap: var(--space-4);
+    width: 100%;
+  }
+
+  label {
+    display: grid;
+    gap: var(--space-2);
+    color: var(--ink);
+    font-weight: 800;
+  }
+
+  .field-label {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .field-optional {
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-button);
+    background: #ffffff;
+    color: var(--ink);
+    padding: var(--space-3) var(--space-4);
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+  }
+
+  textarea {
+    min-height: 112px;
+    resize: vertical;
+  }
+
+  input:hover,
+  textarea:hover {
+    border-color: rgba(24, 49, 83, 0.32);
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px rgba(135, 191, 255, 0.34);
+    outline: none;
+  }
+
+  .contact__form button {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .contact__form button:hover {
+    transform: translateY(-1px);
+    box-shadow: none;
+    background: #5d852f;
+  }
+
+  .contact__form p {
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  details {
+    box-shadow: none;
+  }
+
+  summary {
+    cursor: pointer;
+    color: var(--ink);
+    font-weight: 800;
+  }
+
+  details p {
+    margin-top: var(--space-3);
+  }
+
+  .site-footer {
+    display: grid;
+    gap: var(--space-4);
+    border-top: 1px solid var(--line);
+    padding-block: var(--space-7);
+  }
+
+  @media (max-width: 767px) {
+    .site-header,
+    .hero,
+    .acquisition-intro,
+    .section,
+    .contact,
+    .site-footer {
+      width: 100%;
+      max-width: none;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .site-header {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .testimonial-slide {
+      flex-basis: calc((100% - var(--space-4)) / 2);
+    }
+  }
+
+  @media (min-width: 900px) {
+    body {
+      font-size: 1.07rem;
+    }
+
+    h1 {
+      font-size: 5rem;
+    }
+
+    h2 {
+      font-size: 3.8rem;
+    }
+
+    h3 {
+      font-size: 1.48rem;
+    }
+
+    nav,
+    .site-header .cta-button {
+      display: inline-flex;
+    }
+
+    .services-grid {
+      max-width: 1040px;
+      margin-inline: auto;
+      gap: var(--space-5);
+    }
+
+    .service-card {
+      grid-template-columns: 72px minmax(0, 1fr) 180px;
+      align-items: end;
+      min-height: 151px;
+      padding: 28px var(--space-7);
+    }
+
+    .service-card__number {
+      align-self: start;
+    }
+
+    .service-card__link {
+      padding-bottom: 2px;
+    }
+
+    .section {
+      padding-block: var(--space-9);
+    }
+
+    .strategy-shift {
+      grid-template-columns: 0.78fr 1.22fr;
+      align-items: start;
+    }
+
+    .comparison-board__head,
+    .comparison-board li {
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: var(--space-5);
+    }
+
+    .comparison-board li {
+      padding-bottom: var(--space-4);
+    }
+
+    .acquisition-intro {
+      gap: var(--space-7);
+    }
+
+    .acquisition-timeline {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-5);
+      padding-top: var(--space-4);
+    }
+
+    .acquisition-timeline::before {
+      top: 28px;
+      right: calc(12.5% - 16px);
+      bottom: auto;
+      left: calc(12.5% - 16px);
+      width: auto;
+      height: 2px;
+    }
+
+    .acquisition-timeline li {
+      padding-top: 56px;
+      padding-left: 0;
+    }
+
+    .timeline-dot {
+      top: 21px;
+      left: 0;
+      width: 18px;
+      height: 18px;
+    }
+
+    .split,
+    .solution,
+    .contact {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .contact {
+      grid-template-areas:
+        "copy form"
+        "benefits form";
+      column-gap: var(--space-8);
+      row-gap: var(--space-6);
+    }
+
+    .solution {
+      align-items: start;
+      column-gap: var(--space-8);
+    }
+
+    .acquisition-engine {
+      padding-top: 38px;
+    }
+
+    .engine-map {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: 56px 67px 56px 56px 56px 56px 67px minmax(67px, auto);
+      gap: 16px 20px;
+      min-height: 684px;
+      padding-block: var(--space-2);
+    }
+
+    .engine-node {
+      min-height: 0;
+    }
+
+    .engine-node--google {
+      grid-column: 2 / 4;
+      grid-row: 1;
+    }
+
+    .engine-node--seo {
+      grid-column: 1 / 3;
+      grid-row: 3;
+    }
+
+    .engine-node--ads {
+      grid-column: 3 / 5;
+      grid-row: 3;
+    }
+
+    .engine-node--pagina {
+      grid-column: 2 / 4;
+      grid-row: 4;
+    }
+
+    .engine-node--copy {
+      grid-column: 2 / 4;
+      grid-row: 5;
+    }
+
+    .engine-node--contato {
+      grid-column: 2 / 4;
+      grid-row: 6;
+    }
+
+    .engine-node--sistema {
+      grid-column: 1 / 3;
+      grid-row: 7;
+    }
+
+    .engine-node--cliente {
+      grid-column: 3 / 5;
+      grid-row: 7;
+    }
+
+    .engine-line {
+      position: relative;
+      z-index: 1;
+      display: block;
+      background: rgba(24, 49, 83, 0.2);
+      transition:
+        background 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .engine-line--google {
+      grid-column: 2 / 4;
+      grid-row: 2;
+      justify-self: center;
+      width: 2px;
+      height: 100%;
+    }
+
+    .engine-line--google::before {
+      position: absolute;
+      top: 50%;
+      left: -124px;
+      width: 248px;
+      height: 2px;
+      background: inherit;
+      content: "";
+    }
+
+    .engine-line--seo {
+      grid-column: 2;
+      grid-row: 2;
+      justify-self: start;
+      width: 2px;
+      height: 100%;
+      transform: translateX(-10px);
+    }
+
+    .engine-line--ads {
+      grid-column: 3;
+      grid-row: 2;
+      justify-self: end;
+      width: 2px;
+      height: 100%;
+      transform: translateX(10px);
+    }
+
+    .engine-line--merge-left,
+    .engine-line--merge-right {
+      grid-row: 3 / 5;
+      align-self: end;
+      width: 50%;
+      height: 2px;
+      margin-bottom: 28px;
+    }
+
+    .engine-line--merge-left {
+      grid-column: 2;
+      justify-self: end;
+    }
+
+    .engine-line--merge-right {
+      grid-column: 3;
+      justify-self: start;
+    }
+
+    .engine-line--flow {
+      grid-column: 2 / 4;
+      justify-self: center;
+      width: 2px;
+      height: 16px;
+      margin-top: -16px;
+    }
+
+    .engine-line--to-copy {
+      grid-row: 5;
+    }
+
+    .engine-line--to-contact {
+      grid-row: 6;
+    }
+
+    .engine-line--to-system {
+      grid-column: 2;
+      grid-row: 7;
+      justify-self: end;
+      width: 50%;
+      height: 2px;
+      margin-top: -9px;
+    }
+
+    .engine-line--to-client {
+      grid-column: 3;
+      grid-row: 7;
+      justify-self: start;
+      width: 50%;
+      height: 2px;
+      margin-top: -9px;
+    }
+
+    .engine-notes {
+      grid-column: 1 / 5;
+      grid-row: 8;
+      min-height: 63px;
+      backdrop-filter: blur(8px);
+    }
+
+    .engine-map:has(.engine-node--seo:hover) .engine-line--seo,
+    .engine-map:has(.engine-node--seo:focus-visible) .engine-line--seo,
+    .engine-map:has(.engine-node--seo:hover) .engine-line--merge-left,
+    .engine-map:has(.engine-node--seo:focus-visible) .engine-line--merge-left,
+    .engine-map:has(.engine-node--ads:hover) .engine-line--ads,
+    .engine-map:has(.engine-node--ads:focus-visible) .engine-line--ads,
+    .engine-map:has(.engine-node--ads:hover) .engine-line--merge-right,
+    .engine-map:has(.engine-node--ads:focus-visible) .engine-line--merge-right,
+    .engine-map:has(.engine-node--pagina:hover) .engine-line--merge-left,
+    .engine-map:has(.engine-node--pagina:focus-visible) .engine-line--merge-left,
+    .engine-map:has(.engine-node--pagina:hover) .engine-line--merge-right,
+    .engine-map:has(.engine-node--pagina:focus-visible) .engine-line--merge-right,
+    .engine-map:has(.engine-node--copy:hover) .engine-line--to-copy,
+    .engine-map:has(.engine-node--copy:focus-visible) .engine-line--to-copy,
+    .engine-map:has(.engine-node--contato:hover) .engine-line--to-contact,
+    .engine-map:has(.engine-node--contato:focus-visible) .engine-line--to-contact {
+      background: var(--blue);
+      box-shadow: 0 0 18px rgba(135, 191, 255, 0.62);
+    }
+
+    .contact {
+      padding: var(--space-8);
+    }
+
+    .case-browser__body {
+      min-height: 520px;
+      padding: var(--space-7);
+    }
+
+    .case-new-layout {
+      grid-template-columns: 1fr 0.72fr;
+      min-height: 310px;
+    }
+
+    .case-flow {
+      grid-template-columns: repeat(4, minmax(0, auto));
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      width: 100%;
+    }
+
+    .case-flow::before {
+      top: 50%;
+      right: 48px;
+      bottom: auto;
+      left: 48px;
+      width: auto;
+      height: 2px;
+      transform: translateY(-50%);
+    }
+
+    .case-flow span {
+      margin-inline: var(--space-3);
+    }
+
+    .case-results {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: center;
+    }
+
+    .case-results div:not(:last-child) {
+      border-right: 1px solid var(--line);
+    }
+
+    .site-footer {
+      grid-template-columns: 1fr 1.5fr auto;
+      align-items: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition: none !important;
+    }
+  }
+</style>

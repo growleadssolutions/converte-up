@@ -1,0 +1,24 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  text: string;
+  items: string[];
+}
+
+const { number, title, text, items } = Astro.props;
+---
+
+<article class="service-card">
+  <span class="service-card__number">{number}</span>
+  <div class="service-card__content">
+    <h3>{title}</h3>
+    <p>{text}</p>
+    <ul>
+      {items.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+  <a class="service-card__link" href="#contato" aria-label={`Saiba mais sobre ${title}`}>
+    Saiba mais <span aria-hidden="true">-></span>
+  </a>
+</article>

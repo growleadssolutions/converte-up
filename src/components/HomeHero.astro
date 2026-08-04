@@ -1,0 +1,209 @@
+---
+import CtaButton from "./CtaButton.astro";
+
+const channels = ["SEO", "Google Ads", "Sites", "Sistemas"];
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__copy">
+    <p class="eyebrow">ConverteUp</p>
+    <h1 id="hero-title">Canais previsiveis para empresas locais venderem mais.</h1>
+    <h2 class="hero__lead">
+      Não criamos apenas sites. Construímos estruturas preparadas para transformar buscas no Google
+      em contatos, orçamentos e novos clientes.
+    </h2>
+
+    <div class="hero__actions" aria-label="Acoes principais">
+      <CtaButton href="#contato" label="Quero atrair mais clientes" />
+    </div>
+
+    <ul class="hero__channels" aria-label="Servicos principais">
+      {channels.map((channel) => <li>{channel}</li>)}
+    </ul>
+  </div>
+
+  <figure class="hero__media" aria-label="Visual do metodo de aquisicao ConverteUp">
+    <img
+      src="/Image/Hero/Macbook.webp"
+      alt="MacBook exibindo o metodo de aquisicao da ConverteUp"
+      loading="eager"
+      decoding="async"
+    />
+  </figure>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    align-items: center;
+    min-height: calc(100svh - 98px);
+    padding-block: var(--space-7) var(--space-9);
+  }
+
+  .hero *,
+  .hero *::before,
+  .hero *::after {
+    box-sizing: border-box;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 12%;
+    right: -14%;
+    z-index: -1;
+    width: min(44vw, 520px);
+    aspect-ratio: 1;
+    background: rgba(250, 248, 234, 0.72);
+    transform: rotate(-5deg);
+  }
+
+  .hero__copy {
+    display: grid;
+    gap: var(--space-5);
+    min-width: 0;
+  }
+
+  .hero h1 {
+    max-width: 13ch;
+    overflow-wrap: break-word;
+  }
+
+  .hero__lead {
+    max-width: 62ch;
+    color: var(--ink-soft);
+    font-family: "Archivo", "Segoe UI", sans-serif;
+    font-size: 1.08rem;
+    font-weight: 500;
+    line-height: 1.58;
+  }
+
+  .hero__actions {
+    display: grid;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  .hero__channels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    align-items: center;
+    margin: var(--space-1) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero__channels li {
+    display: inline-flex;
+    align-items: center;
+    color: var(--ink-muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0;
+    text-transform: uppercase;
+  }
+
+  .hero__channels li + li::before {
+    content: "/";
+    margin-inline: var(--space-3);
+    color: var(--moss);
+    font-weight: 800;
+  }
+
+  .hero__media {
+    position: relative;
+    min-width: 0;
+    margin: 0;
+    isolation: isolate;
+  }
+
+  .hero__media::before {
+    content: "";
+    position: absolute;
+    inset: 13% 8% 3%;
+    z-index: -1;
+    background: rgba(24, 49, 83, 0.16);
+    filter: blur(30px);
+    transform: translateY(18px);
+  }
+
+  .hero__media img {
+    display: block;
+    width: min(120%, 744px);
+    height: auto;
+    margin-inline: auto;
+  }
+
+  @media (max-width: 767px) {
+    .hero {
+      overflow: hidden;
+      padding-top: var(--space-5);
+    }
+
+    .hero::before {
+      top: auto;
+      right: -120px;
+      bottom: 18%;
+      width: 300px;
+    }
+
+    .hero h1 {
+      max-width: 100%;
+      font-size: 2.22rem;
+    }
+
+    .hero__actions :global(.cta-button) {
+      width: calc(100% - 8px);
+    }
+
+    .hero__channels {
+      row-gap: var(--space-2);
+    }
+
+    .hero__channels li {
+      font-size: 0.74rem;
+    }
+
+    .hero__media {
+      width: calc(100% + 24px);
+      margin-left: -12px;
+    }
+
+    .hero__media::before {
+      inset: 18% 12% 7%;
+      filter: blur(22px);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .hero {
+      grid-template-columns: minmax(0, 1.05fr) minmax(390px, 0.95fr);
+      gap: var(--space-9);
+      padding-block: var(--space-7) var(--space-10);
+    }
+
+    .hero h1 {
+      font-size: 4.72rem;
+    }
+
+    .hero__lead {
+      font-size: 1.2rem;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .hero__media img {
+      width: min(57.6vw, 828px);
+      margin-right: -3vw;
+    }
+  }
+</style>
