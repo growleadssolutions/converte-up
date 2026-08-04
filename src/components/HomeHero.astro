@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import CtaButton from "./CtaButton.astro";
+import macbookImage from "../assets/images/hero/macbook.webp";
 
 const channels = ["SEO", "Google Ads", "Sites", "Sistemas"];
 ---
@@ -23,11 +25,15 @@ const channels = ["SEO", "Google Ads", "Sites", "Sistemas"];
   </div>
 
   <figure class="hero__media" aria-label="Visual do metodo de aquisicao ConverteUp">
-    <img
-      src="/Image/Hero/Macbook.webp"
-      alt="MacBook exibindo o metodo de aquisicao da ConverteUp"
+    <Image
+      src={macbookImage}
+      width={760}
+      format="webp"
+      quality={82}
       loading="eager"
       decoding="async"
+      fetchpriority="high"
+      alt="MacBook exibindo o metodo de aquisicao da ConverteUp"
     />
   </figure>
 </section>
