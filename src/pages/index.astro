@@ -3,31 +3,37 @@ import CtaButton from "../components/CtaButton.astro";
 import HomeHero from "../components/HomeHero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import ServiceCard from "../components/ServiceCard.astro";
+import SeoHead from "../components/SeoHead.astro";
+import { CONTACT_EMAIL, WHATSAPP_HREF, organizationSchema } from "../config/site.js";
 
 const services = [
   {
     number: "01",
     title: "SEO Local",
-    text: "Apareca quando o cliente procura seu servico.",
-    items: ["Conteudo estrategico", "Google Business"],
+    text: "Apareça quando o cliente procura seu serviço.",
+    items: ["Conteúdo estratégico", "Google Business"],
+    href: "/seo/",
   },
   {
     number: "02",
     title: "Google Ads",
-    text: "Campanhas voltadas para geracao de demanda.",
-    items: ["Landing pages", "Conversao"],
+    text: "Campanhas voltadas para geração de demanda.",
+    items: ["Landing pages", "Conversão"],
+    href: "/google-ads/",
   },
   {
     number: "03",
-    title: "Sites estrategicos",
-    text: "Paginas preparadas para explicar valor e gerar contato.",
+    title: "Sites estratégicos",
+    text: "Páginas preparadas para explicar valor e gerar contato.",
     items: ["Copy comercial", "Design responsivo"],
+    href: "/criacao-de-sites/",
   },
   {
     number: "04",
     title: "Sistemas",
     text: "Ferramentas para organizar atendimento, processos e dados.",
-    items: ["Automacoes", "Painel interno"],
+    items: ["Automações", "Painel interno"],
+    href: "/criacao-de-sistemas/",
   },
 ];
 
@@ -35,27 +41,27 @@ const engineNotes = [
   {
     id: "seo",
     label: "SEO",
-    text: "Constrói presença organica para capturar clientes que ja procuram por servico, cidade, bairro e solucao.",
+    text: "Constrói presença orgânica para capturar clientes que já procuram por serviço, cidade, bairro e solução.",
   },
   {
     id: "ads",
     label: "Google Ads",
-    text: "Compra demanda com rota clara: termo buscado, anuncio, pagina certa e contato mensuravel.",
+    text: "Compra demanda com rota clara: termo buscado, anúncio, página certa e contato mensurável.",
   },
   {
     id: "pagina",
-    label: "Pagina estrategica",
-    text: "Organiza promessa, prova, servicos e objecoes para o visitante entender rapidamente por que chamar.",
+    label: "Página estratégica",
+    text: "Organiza promessa, prova, serviços e objeções para o visitante entender rapidamente por que chamar.",
   },
   {
     id: "copy",
-    label: "Copy + Conversao",
-    text: "Transforma atencao em decisao com mensagem comercial, hierarquia visual e chamadas para acao.",
+    label: "Copy + Conversão",
+    text: "Transforma atenção em decisão com mensagem comercial, hierarquia visual e chamadas para ação.",
   },
   {
     id: "contato",
-    label: "WhatsApp / Ligacao",
-    text: "Remove atrito no ultimo passo para o lead virar conversa, orcamento, agenda ou visita.",
+    label: "WhatsApp / Ligação",
+    text: "Remove atrito no último passo para o lead virar conversa, orçamento, agenda ou visita.",
   },
 ];
 
@@ -109,95 +115,53 @@ const strategyComparison = [
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "Quando conheci a ConverteUp, nossa assistencia tecnica tinha um site, mas ele nao ajudava a trazer clientes. O novo projeto reorganizou toda nossa presenca digital, melhorou nossa visibilidade nas buscas e hoje temos um canal preparado para crescer.",
-    author: "Renata",
-    role: "Proprietaria • Reecell Assistencia Tecnica",
-  },
-  {
-    quote:
-      "Precisavamos mostrar nossos servicos de forma profissional e aparecer melhor no Google. Em poucos dias apos o lancamento do novo site ja comecamos a receber contatos vindos da internet. Hoje temos uma estrutura preparada para continuar crescendo.",
-    author: "Alisson",
-    role: "Proprietario • Top Vip Reformas",
-  },
-  {
-    quote:
-      "A analise realizada pela equipe trouxe uma visao muito alem do design. Foram apontadas oportunidades de usabilidade, posicionamento e comunicacao que agregaram valor ao nosso projeto.",
-    author: "Equipe de projeto",
-    role: "Startup participante do Shark Tank Brasil (projeto academico)",
-  },
-  {
-    quote:
-      "Nosso objetivo era modernizar a presenca digital sem expor a identidade da empresa. O resultado foi um site muito mais organizado, rapido e preparado para atender nossos pacientes.",
-    author: "Cliente do setor de saude",
-    role: "Nome preservado por solicitacao do cliente",
-  },
-];
-
 const faqs = [
   {
     question: "A ConverteUp faz apenas o layout?",
     answer:
-      "Nao. O site e tratado como uma peca comercial: posicionamento, texto, estrutura, SEO, velocidade e conversao entram no escopo.",
+      "Não. O site é tratado como uma peça comercial: posicionamento, texto, estrutura, SEO, velocidade e conversão entram no escopo.",
   },
   {
-    question: "Da para aproveitar um site existente?",
+    question: "Dá para aproveitar um site existente?",
     answer:
-      "Sim, quando a base permite. Em alguns casos vale melhorar arquitetura, conteudo e CTAs antes de refazer tudo.",
+      "Sim, quando a base permite. Em alguns casos vale melhorar arquitetura, conteúdo e CTAs antes de refazer tudo.",
   },
   {
-    question: "O site ja sai pronto para anuncios e SEO?",
+    question: "O site já sai pronto para anúncios e SEO?",
     answer:
-      "A estrutura nasce preparada para campanhas, indexacao e mensuracao. Resultados dependem de oferta, mercado, consistencia e concorrencia.",
+      "A estrutura nasce preparada para campanhas, indexação e mensuração. Resultados dependem de oferta, mercado, consistência e concorrência.",
   },
 ];
+
+const pageTitle = "ConverteUp | Aquisição previsível para empresas locais";
+const pageDescription =
+  "ConverteUp constrói canais previsíveis de aquisição com SEO, Google Ads, criação de sites e sistemas para pequenas e médias empresas.";
 ---
 
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="ConverteUp constroi canais previsiveis de aquisicao com SEO, Google Ads, criacao de sites e sistemas para pequenas e medias empresas."
+    <SeoHead
+      title={pageTitle}
+      description={pageDescription}
+      schema={organizationSchema}
     />
-    <meta name="theme-color" content="#183153" />
-    <meta property="og:title" content="ConverteUp | Aquisicao previsivel para empresas locais" />
-    <meta
-      property="og:description"
-      content="SEO, Google Ads, sites e sistemas para atrair clientes, aumentar receita e aparecer mais que o concorrente."
-    />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <title>ConverteUp | Aquisicao previsivel para empresas locais</title>
   </head>
   <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteudo</a>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-    <header class="site-header" aria-label="Navegacao principal">
-      <a class="brand" href="/" aria-label="ConverteUp inicio">
+    <header class="site-header" aria-label="Navegação principal">
+      <a class="brand" href="/" aria-label="ConverteUp início">
         <span class="brand-mark">C</span>
         <span>ConverteUp</span>
       </a>
       <nav>
-        <a href="#problema">Como Funciona</a>
-        <a href="#solucao">Solucao</a>
-        <a href="#servicos">Servicos</a>
-        <a href="#confianca">Resultados</a>
-        <a href="#contato">Contato</a>
+        <a href="/seo/">SEO</a>
+        <a href="/google-ads/">Google Ads</a>
+        <a href="/criacao-de-sites/">Criação de Sites</a>
+        <a href="/contato/">Contato</a>
       </nav>
-      <CtaButton href="#contato" label="Solicitar diagnostico" variant="secondary" />
+      <CtaButton href={WHATSAPP_HREF} label="Solicitar diagnóstico" variant="secondary" />
     </header>
 
     <main id="conteudo">
@@ -212,7 +176,7 @@ const faqs = [
             caminho claro para conquistar novos clientes. É exatamente isso que construímos.
           </p>
         </div>
-        <ol class="acquisition-timeline" aria-label="Como funciona a aquisicao">
+        <ol class="acquisition-timeline" aria-label="Como funciona a aquisição">
           {
             acquisitionTimeline.map((item) => (
               <li>
@@ -271,7 +235,7 @@ const faqs = [
           <p class="eyebrow">ANTES × DEPOIS</p>
           <h2 id="problem-title">O que muda quando existe uma estratégia.</h2>
         </div>
-        <div class="comparison-board" aria-label="Comparativo antes e depois da estrategia">
+        <div class="comparison-board" aria-label="Comparativo antes e depois da estratégia">
           <div class="comparison-board__head" aria-hidden="true">
             <span>Antes</span>
             <span>Depois</span>
@@ -297,15 +261,15 @@ const faqs = [
 
       <section class="section solution" id="solucao" aria-labelledby="solution-title">
         <div class="solution-copy">
-          <p class="eyebrow">Solucao</p>
-          <h2 id="solution-title">O Motor da Aquisicao transforma busca em cliente.</h2>
+          <p class="eyebrow">Solução</p>
+          <h2 id="solution-title">O Motor da Aquisição transforma busca em cliente.</h2>
           <p>
-            A ConverteUp nao trata site, trafego e atendimento como pecas soltas. O trabalho e
-            montar um sistema em que cada canal empurra o proximo passo comercial.
+            A ConverteUp não trata site, tráfego e atendimento como peças soltas. O trabalho é
+            montar um sistema em que cada canal empurra o próximo passo comercial.
           </p>
         </div>
 
-        <div class="acquisition-engine" aria-label="Diagrama do motor da aquisicao">
+        <div class="acquisition-engine" aria-label="Diagrama do motor da aquisição">
           <div class="engine-map">
             <button class="engine-node engine-node--google" type="button">
               <span>Google</span>
@@ -317,13 +281,13 @@ const faqs = [
               <span>Google Ads</span>
             </button>
             <button class="engine-node engine-node--pagina engine-node--interactive" type="button">
-              <span>Pagina Estrategica</span>
+              <span>Página Estratégica</span>
             </button>
             <button class="engine-node engine-node--copy engine-node--interactive" type="button">
-              <span>Copy + Conversao</span>
+              <span>Copy + Conversão</span>
             </button>
             <button class="engine-node engine-node--contato engine-node--interactive" type="button">
-              <span>WhatsApp / Ligacao</span>
+              <span>WhatsApp / Ligação</span>
             </button>
             <button class="engine-node engine-node--sistema" type="button">
               <span>Sistema</span>
@@ -361,7 +325,7 @@ const faqs = [
 
       <section class="section services-section" id="servicos" aria-labelledby="services-title">
         <div class="services-intro">
-          <h2 id="services-title">Nossos servicos</h2>
+          <h2 id="services-title">Nossos serviços</h2>
           <p>
             Cada empresa está em um momento diferente de crescimento. Algumas precisam aparecer no Google, outras transformar visitantes em contatos 
             ou organizar processos internos. Nossos serviços podem ser contratados separadamente, mas foram desenvolvidos para trabalhar em conjunto,
@@ -372,56 +336,15 @@ const faqs = [
           {services.map((service) => <ServiceCard {...service} />)}
         </div>
       </section>
-
-      <section class="section trust" id="confianca" aria-labelledby="trust-title">
-        <div class="trust__header">
-          <p class="eyebrow">Depoimentos</p>
-          <h2 id="trust-title">O que os clientes dizem</h2>
-          <p>
-            Estes sao alguns dos projetos em que ajudamos empresas a fortalecer sua presenca
-            digital, conquistar mais visibilidade e criar canais preparados para gerar novos
-            clientes. Cada negocio tem um desafio diferente, mas todos seguiram a mesma filosofia:
-            estrategia antes de ferramenta.
-          </p>
-        </div>
-        <div class="testimonial-carousel" data-testimonial-carousel>
-          <div class="testimonial-viewport">
-            <ul class="testimonial-track">
-              {
-                testimonials.map((item) => (
-                  <li class="testimonial-slide">
-                    <article class="testimonial-card">
-                      <div class="testimonial-stars" aria-label="Avaliacao cinco estrelas">
-                        <span aria-hidden="true">★★★★★</span>
-                      </div>
-                      <blockquote>{item.quote}</blockquote>
-                      <footer>
-                        <strong>{item.author}</strong>
-                        <span>{item.role}</span>
-                      </footer>
-                    </article>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-          <div class="testimonial-controls" aria-label="Controles dos depoimentos">
-            <div class="testimonial-dots" aria-hidden="true">
-              {testimonials.map(() => <span></span>)}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section case-study" aria-labelledby="case-title">
+      <section class="section case-study" id="confianca" aria-labelledby="case-title">
         <div class="case-study__intro">
           <p class="eyebrow">Case Reecell</p>
-          <h2 id="case-title">Uma loja boa, mas dificil de encontrar.</h2>
+          <h2 id="case-title">Uma loja boa, mas difícil de encontrar.</h2>
         </div>
 
         <div class="case-story">
           <article class="case-frame case-frame--old">
-            <div class="case-browser" aria-label="Representacao do site antigo da Reecell">
+            <div class="case-browser" aria-label="Representação do site antigo da Reecell">
               <div class="case-browser__bar">
                 <span></span>
                 <span></span>
@@ -441,10 +364,10 @@ const faqs = [
                 </div>
               </div>
             </div>
-            <p>O site existia, mas funcionava como vitrine. A Reecell dependia de indicacoes e recorrencia enquanto perdia espaco nas buscas locais.</p>
+            <p>O site existia, mas funcionava como vitrine. A Reecell dependia de indicações e recorrência enquanto perdia espaço nas buscas locais.</p>
           </article>
 
-          <div class="case-flow" aria-label="Linha de transformacao do projeto">
+          <div class="case-flow" aria-label="Linha de transformação do projeto">
             <span>Site</span>
             <span>SEO</span>
             <span>Google Business</span>
@@ -452,7 +375,7 @@ const faqs = [
           </div>
 
           <article class="case-frame case-frame--new">
-            <div class="case-browser" aria-label="Representacao do site novo da Reecell">
+            <div class="case-browser" aria-label="Representação do site novo da Reecell">
               <div class="case-browser__bar">
                 <span></span>
                 <span></span>
@@ -475,7 +398,7 @@ const faqs = [
                 </div>
               </div>
             </div>
-            <p>O site deixou de ser vitrine e virou canal de aquisicao: paginas por servico, SEO local, Google Business Profile, blog e campanhas conectadas.</p>
+            <p>O site deixou de ser vitrine e virou canal de aquisição: páginas por serviço, SEO local, Google Business Profile, blog e campanhas conectadas.</p>
           </article>
 
           <div class="case-results" aria-label="Resultados do projeto Reecell">
@@ -489,36 +412,42 @@ const faqs = [
             </div>
             <div>
               <strong>≈ R$ 40 mil</strong>
-              <span>diferenca observada em um mes</span>
+              <span>diferença observada em um mês</span>
             </div>
           </div>
 
           <p class="case-disclaimer">
-            O impacto financeiro foi influenciado pelo conjunto das estrategias implementadas e tambem por fatores externos do negocio.
+            O impacto financeiro foi influenciado pelo conjunto das estratégias implementadas e também por fatores externos do negócio.
           </p>
 
-          <a class="case-study__link" href="#contato">Ver o projeto completo</a>
+          <a class="case-study__link" href={WHATSAPP_HREF}>Ver o projeto completo</a>
         </div>
       </section>
 
       <section class="contact" id="contato" aria-labelledby="contact-title">
         <div class="contact__copy">
           <p class="eyebrow">Contato</p>
-          <h2 id="contact-title">Vamos descobrir onde estao seus proximos clientes.</h2>
+          <h2 id="contact-title">Vamos descobrir onde estão seus próximos clientes.</h2>
           <p>
-            Receba uma analise inicial da sua presenca digital e descubra quais canais tem maior
-            potencial para gerar contatos, orcamentos e vendas.
+            Receba uma análise inicial da sua presença digital e descubra quais canais têm maior
+            potencial para gerar contatos, orçamentos e vendas.
           </p>
         </div>
 
-        <ul class="contact__benefits" aria-label="Beneficios do diagnostico inicial">
-          <li>Analise de posicionamento</li>
+        <ul class="contact__benefits" aria-label="Benefícios do diagnóstico inicial">
+          <li>Análise de posicionamento</li>
           <li>Oportunidades de crescimento</li>
           <li>Pontos que dificultam conversoes</li>
-          <li>Proximos passos recomendados</li>
+          <li>Próximos passos recomendados</li>
         </ul>
 
-        <form class="contact__form" name="diagnostico" method="get" action="mailto:contato@converteup.com.br">
+        <form
+          class="contact__form"
+          name="diagnostico"
+          method="get"
+          action={`mailto:${CONTACT_EMAIL}`}
+          data-conversion="contact-form"
+        >
           <label>
             Nome
             <input name="nome" autocomplete="name" placeholder="Seu nome" required />
@@ -531,7 +460,7 @@ const faqs = [
             <span class="field-label">Assunto ou mensagem <span class="field-optional">(opcional)</span></span>
             <textarea name="mensagem" placeholder="Conte brevemente como podemos ajudar"></textarea>
           </label>
-          <button type="submit">Quero meu diagnostico</button>
+          <button type="submit" data-cta="form-submit" data-conversion="contact-form">Quero meu diagnóstico</button>
           <p>Sem compromisso • resposta pelo WhatsApp</p>
         </form>
       </section>
@@ -539,7 +468,7 @@ const faqs = [
       <section class="section faq" aria-labelledby="faq-title">
         <SectionHeader
           eyebrow="FAQ"
-          title="Perguntas antes de comecar."
+          title="Perguntas antes de começar."
           text="Respostas diretas para alinhar expectativa, escopo e prioridade."
         />
         <div class="faq-list">
@@ -556,70 +485,15 @@ const faqs = [
     </main>
 
     <footer class="site-footer">
-      <a class="brand" href="/" aria-label="ConverteUp inicio">
+      <a class="brand" href="/" aria-label="ConverteUp início">
         <span class="brand-mark">C</span>
         <span>ConverteUp</span>
       </a>
       <p>SEO, Google Ads, sites e sistemas para empresas locais que precisam vender melhor pela internet.</p>
-      <a href="#contato">Solicitar diagnostico</a>
+      <a href={WHATSAPP_HREF}>Solicitar diagnóstico</a>
     </footer>
   </body>
 </html>
-
-<script is:inline>
-  (() => {
-    const carousel = document.querySelector("[data-testimonial-carousel]");
-    if (!carousel) return;
-
-    const track = carousel.querySelector(".testimonial-track");
-    const slides = Array.from(carousel.querySelectorAll(".testimonial-slide"));
-    const dots = Array.from(carousel.querySelectorAll(".testimonial-dots span"));
-    let index = 0;
-    let timer;
-
-    const visibleCount = () => (window.matchMedia("(min-width: 640px)").matches ? 2 : 1);
-    const maxIndex = () => Math.max(0, slides.length - visibleCount());
-
-    const update = (nextIndex = index) => {
-      index = Math.max(0, Math.min(nextIndex, maxIndex()));
-      track.style.transform = `translateX(-${slides[index].offsetLeft}px)`;
-      dots.forEach((dot, dotIndex) => {
-        dot.classList.toggle("is-active", dotIndex === index);
-        dot.hidden = dotIndex > maxIndex();
-      });
-    };
-
-    const advance = (direction) => {
-      const target = index + direction;
-      update(target > maxIndex() ? 0 : target < 0 ? maxIndex() : target);
-    };
-
-    const start = () => {
-      stop();
-      timer = window.setInterval(() => advance(1), 5200);
-    };
-
-    const stop = () => {
-      if (timer) window.clearInterval(timer);
-    };
-
-    dots.forEach((dot, dotIndex) => {
-      dot.addEventListener("click", () => {
-        update(dotIndex);
-        start();
-      });
-    });
-    carousel.addEventListener("mouseenter", stop);
-    carousel.addEventListener("mouseleave", start);
-    carousel.addEventListener("focusin", stop);
-    carousel.addEventListener("focusout", start);
-    window.addEventListener("resize", () => update());
-
-    update(0);
-    start();
-  })();
-</script>
-
 <style is:global>
   :root {
     --ink: #183153;
@@ -650,7 +524,7 @@ const faqs = [
     --space-10: 128px;
     color: var(--ink);
     background: var(--paper);
-    font-family: "Archivo", "Segoe UI", sans-serif;
+    font-family: "Inter", "Segoe UI", sans-serif;
   }
 
   *,
@@ -687,7 +561,7 @@ const faqs = [
   h1,
   h2,
   h3 {
-    font-family: "Fraunces", Georgia, serif;
+    font-family: "Manrope", "Segoe UI", sans-serif;
     line-height: 1;
     letter-spacing: 0;
   }
@@ -1456,7 +1330,7 @@ const faqs = [
 
   .case-results strong {
     color: var(--ink);
-    font-family: "Fraunces", Georgia, serif;
+    font-family: "Manrope", "Segoe UI", sans-serif;
     font-size: clamp(2rem, 7vw, 3.4rem);
     line-height: 1;
   }
@@ -1613,7 +1487,7 @@ const faqs = [
     display: block;
     margin-bottom: var(--space-2);
     color: var(--ink);
-    font-family: "Fraunces", Georgia, serif;
+    font-family: "Manrope", "Segoe UI", sans-serif;
     font-size: 1.28rem;
     line-height: 1.05;
   }
@@ -1641,114 +1515,6 @@ const faqs = [
   .engine-map:has(.engine-node--contato:focus-visible) .engine-note--contato {
     opacity: 1;
     transform: none;
-  }
-
-  .trust__header {
-    display: grid;
-    gap: var(--space-3);
-    max-width: 720px;
-  }
-
-  .trust__header p:not(.eyebrow) {
-    color: var(--ink-soft);
-    font-size: 1.06rem;
-    line-height: 1.62;
-  }
-
-  .testimonial-carousel {
-    display: grid;
-    gap: var(--space-4);
-  }
-
-  .testimonial-viewport {
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .testimonial-track {
-    display: flex;
-    gap: var(--space-4);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    transition: transform 280ms ease;
-    will-change: transform;
-  }
-
-  .testimonial-slide {
-    flex: 0 0 100%;
-    min-width: 0;
-  }
-
-  .testimonial-card {
-    display: grid;
-    gap: var(--space-4);
-    height: 100%;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-card);
-    background: var(--panel);
-    box-shadow: var(--shadow);
-    padding: var(--space-5);
-  }
-
-  .testimonial-stars {
-    color: var(--olive);
-    font-size: 1.04rem;
-    letter-spacing: 0.08em;
-    line-height: 1;
-  }
-
-  .testimonial-card blockquote {
-    margin: 0;
-    color: var(--ink-soft);
-    font-size: 1.02rem;
-    line-height: 1.62;
-  }
-
-  .testimonial-card footer {
-    display: grid;
-    gap: var(--space-1);
-    align-self: end;
-    border-top: 1px solid var(--line);
-    padding-top: var(--space-4);
-  }
-
-  .testimonial-card strong {
-    color: var(--ink);
-    font-family: "Fraunces", Georgia, serif;
-    font-size: 1.18rem;
-    line-height: 1.05;
-  }
-
-  .testimonial-card footer span {
-    color: var(--ink-muted);
-    font-size: 0.9rem;
-    font-weight: 800;
-    line-height: 1.35;
-  }
-
-  .testimonial-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .testimonial-dots {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-  }
-
-  .testimonial-dots span {
-    width: 8px;
-    height: 8px;
-    border: 1px solid var(--ink);
-    border-radius: 50%;
-    background: transparent;
-  }
-
-  .testimonial-dots span.is-active {
-    background: var(--olive);
   }
 
   .contact {
@@ -1919,12 +1685,6 @@ const faqs = [
 
     .site-header {
       flex-wrap: wrap;
-    }
-  }
-
-  @media (min-width: 640px) {
-    .testimonial-slide {
-      flex-basis: calc((100% - var(--space-4)) / 2);
     }
   }
 

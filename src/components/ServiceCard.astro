@@ -4,9 +4,10 @@ interface Props {
   title: string;
   text: string;
   items: string[];
+  href?: string;
 }
 
-const { number, title, text, items } = Astro.props;
+const { number, title, text, items, href = "/contato/" } = Astro.props;
 ---
 
 <article class="service-card">
@@ -18,7 +19,7 @@ const { number, title, text, items } = Astro.props;
       {items.map((item) => <li>{item}</li>)}
     </ul>
   </div>
-  <a class="service-card__link" href="#contato" aria-label={`Saiba mais sobre ${title}`}>
+  <a class="service-card__link" href={href} aria-label={`Saiba mais sobre ${title}`}>
     Saiba mais <span aria-hidden="true">-></span>
   </a>
 </article>

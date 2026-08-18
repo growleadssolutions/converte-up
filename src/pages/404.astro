@@ -1,0 +1,274 @@
+---
+import CtaButton from "../components/CtaButton.astro";
+import SeoHead from "../components/SeoHead.astro";
+
+const pageTitle = "Pagina nao encontrada | ConverteUp";
+const pageDescription =
+  "A pagina solicitada nao foi encontrada. Volte para a Home da ConverteUp ou acesse uma das paginas principais.";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <SeoHead title={pageTitle} description={pageDescription} robots="noindex, follow" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteudo</a>
+
+    <header class="site-header" aria-label="Navegacao principal">
+      <a class="brand" href="/" aria-label="ConverteUp inicio">
+        <span class="brand-mark">C</span>
+        <span>ConverteUp</span>
+      </a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/criacao-de-sites/">Criacao de Sites</a>
+        <a href="/seo/">SEO</a>
+        <a href="/google-ads/">Google Ads</a>
+        <a href="/contato/">Contato</a>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <section class="not-found" aria-labelledby="not-found-title">
+        <p class="eyebrow">404</p>
+        <h1 id="not-found-title">Pagina nao encontrada.</h1>
+        <p>
+          O endereco pode ter mudado ou nao existir. Volte para a Home ou acesse uma das paginas
+          principais do site.
+        </p>
+        <div class="not-found__actions">
+          <CtaButton href="/" label="Voltar para a Home" dataConversion="primary-cta" />
+          <a class="text-link" href="/contato/">Falar com a ConverteUp</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="/" aria-label="ConverteUp inicio">
+        <span class="brand-mark">C</span>
+        <span>ConverteUp</span>
+      </a>
+      <p>SEO, Google Ads, sites e sistemas para empresas locais que precisam vender melhor pela internet.</p>
+      <a class="text-link" href="/contato/">Contato</a>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --ink: #183153;
+    --ink-soft: rgba(24, 49, 83, 0.76);
+    --ink-muted: rgba(24, 49, 83, 0.56);
+    --paper: #eeebd3;
+    --paper-strong: #faf8ea;
+    --olive: #679436;
+    --moss: #5c946e;
+    --line: rgba(24, 49, 83, 0.15);
+    --radius-button: 8px;
+    --radius-card: 8px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 72px;
+    --space-9: 96px;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Inter", "Segoe UI", sans-serif;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    min-width: 320px;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    max-width: 12ch;
+    color: var(--ink);
+    font-family: "Manrope", "Segoe UI", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.02;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: var(--space-4);
+    left: var(--space-4);
+    z-index: 20;
+    transform: translateY(-160%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-button);
+    background: var(--olive);
+    color: #ffffff;
+    padding: var(--space-3) var(--space-4);
+    font-weight: 800;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .site-header,
+  .not-found,
+  .site-footer {
+    width: calc(100% - 40px);
+    max-width: 1180px;
+    margin-inline: auto;
+  }
+
+  .site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-block: var(--space-5);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: 44px;
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    background: var(--olive);
+    color: #ffffff;
+    font-size: 0.95rem;
+  }
+
+  nav {
+    display: none;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  nav a,
+  .text-link,
+  .site-footer a:not(.brand) {
+    color: var(--ink-soft);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .not-found {
+    display: grid;
+    gap: var(--space-5);
+    min-height: 58svh;
+    align-content: center;
+    padding-block: var(--space-8) var(--space-9);
+  }
+
+  .not-found > p:not(.eyebrow) {
+    max-width: 56ch;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+  }
+
+  .not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  .eyebrow {
+    color: var(--moss);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-button);
+    background: var(--olive);
+    box-shadow: 6px 6px 0 var(--ink);
+    color: #ffffff;
+    font-weight: 800;
+    line-height: 1.15;
+    padding: var(--space-3) var(--space-5);
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .site-footer {
+    display: grid;
+    gap: var(--space-4);
+    border-top: 1px solid var(--line);
+    padding-block: var(--space-7);
+  }
+
+  .site-footer p {
+    color: var(--ink-soft);
+  }
+
+  .cta-button:focus-visible,
+  a:focus-visible {
+    outline: 3px solid rgba(111, 153, 52, 0.42);
+    outline-offset: 4px;
+  }
+
+  @media (min-width: 900px) {
+    body {
+      font-size: 1.07rem;
+    }
+
+    h1 {
+      font-size: 4.35rem;
+    }
+
+    nav {
+      display: inline-flex;
+    }
+
+    .site-footer {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+    }
+  }
+</style>

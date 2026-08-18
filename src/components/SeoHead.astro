@@ -1,0 +1,58 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  robots?: string;
+  fontsHref?: string;
+}
+
+import { DEFAULT_ROBOTS, SITE_NAME, SITE_URL } from "../config/site.js";
+
+const {
+  title,
+  description,
+  schema,
+  ogImage,
+  ogTitle = title,
+  ogDescription = description,
+  robots = DEFAULT_ROBOTS,
+  fontsHref = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Manrope:wght@700;800&display=swap",
+} = Astro.props;
+const pathname = Astro.url.pathname === "/" ? "/" : Astro.url.pathname.replace(/\/$/, "");
+const canonical = new URL(pathname, SITE_URL).toString();
+const absoluteOgImage = ogImage ? new URL(ogImage, SITE_URL).toString() : undefined;
+const schemaItems = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<meta name="description" content={description} />
+<meta name="robots" content={robots} />
+<meta name="theme-color" content="#1F365C" />
+<link rel="canonical" href={canonical} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href={fontsHref}
+  rel="stylesheet"
+/>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<meta property="og:title" content={ogTitle} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={SITE_NAME} />
+{absoluteOgImage && <meta property="og:image" content={absoluteOgImage} />}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={ogTitle} />
+<meta name="twitter:description" content={ogDescription} />
+{absoluteOgImage && <meta name="twitter:image" content={absoluteOgImage} />}
+{schemaItems.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
+<title>{title}</title>

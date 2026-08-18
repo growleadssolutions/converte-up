@@ -1,0 +1,1701 @@
+---
+import CtaButton from "../components/CtaButton.astro";
+import SeoHead from "../components/SeoHead.astro";
+import { CONTACT_EMAIL, WHATSAPP_HREF, absoluteUrl } from "../config/site.js";
+
+const problemSignals = [
+  {
+    title: "Informação espalhada",
+    text: "Dados importantes ficam divididos entre planilhas, mensagens e diferentes ferramentas.",
+  },
+  {
+    title: "Trabalho repetitivo",
+    text: "A equipe executa manualmente tarefas que poderiam acontecer automaticamente.",
+  },
+  {
+    title: "Falta de visibilidade",
+    text: "É difícil acompanhar status, responsáveis, prazos e resultados em um único lugar.",
+  },
+  {
+    title: "Ferramentas que não conversam",
+    text: "A operação depende de vários sistemas sem um fluxo claro entre eles.",
+  },
+];
+
+const possibilities = [
+  {
+    title: "CRM personalizado",
+    text: "Organize leads, clientes, histórico e etapas comerciais de acordo com o seu processo.",
+  },
+  {
+    title: "Gestão de processos",
+    text: "Centralize tarefas, responsáveis, status e informações da operação.",
+  },
+  {
+    title: "Portais internos",
+    text: "Crie ambientes para equipe, parceiros ou clientes acessarem informações e serviços.",
+  },
+  {
+    title: "Automação de tarefas",
+    text: "Reduza atividades repetitivas conectando etapas que hoje dependem de ação manual.",
+  },
+  {
+    title: "Dashboards",
+    text: "Transforme dados dispersos em informações que podem ser acompanhadas.",
+  },
+  {
+    title: "Sistemas específicos",
+    text: "Quando uma ferramenta pronta não resolve o processo, desenvolvemos uma solução voltada à necessidade.",
+  },
+];
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Entender",
+    text: "Mapeamos o processo atual, as pessoas envolvidas e onde estão os principais gargalos.",
+  },
+  {
+    step: "02",
+    title: "Simplificar",
+    text: "Antes de automatizar, eliminamos etapas desnecessárias e organizamos o fluxo.",
+  },
+  {
+    step: "03",
+    title: "Construir",
+    text: "Transformamos o processo definido em uma ferramenta simples de utilizar.",
+  },
+  {
+    step: "04",
+    title: "Evoluir",
+    text: "Acompanhamos o uso e identificamos melhorias conforme a operação amadurece.",
+  },
+];
+
+const makesSense = [
+  "o processo é específico",
+  "existe muito trabalho manual",
+  "informações ficam espalhadas",
+  "ferramentas atuais limitam a operação",
+  "existe necessidade de integração",
+];
+
+const doesNotMakeSense = [
+  "uma ferramenta pronta já resolve bem",
+  "o processo ainda muda toda semana",
+  "o problema ainda não está claramente definido",
+  "desenvolver custaria mais do que o problema gera",
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Criação de Sistemas Sob Medida",
+  provider: {
+    "@type": "Organization",
+    name: "ConverteUp",
+    url: absoluteUrl("/"),
+  },
+  areaServed: "BR",
+  serviceType: "Criação de sistemas sob medida e automação de processos",
+  description:
+    "Criamos sistemas sob medida para organizar processos, automatizar tarefas e substituir operações manuais por ferramentas pensadas para sua empresa.",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: absoluteUrl("/"),
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Criação de Sistemas",
+      item: absoluteUrl("/criacao-de-sistemas"),
+    },
+  ],
+};
+
+const pageTitle = "Criação de Sistemas Sob Medida | ConverteUp";
+const pageDescription =
+  "Criamos sistemas sob medida para organizar processos, automatizar tarefas e substituir operações manuais por ferramentas pensadas para sua empresa.";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <SeoHead title={pageTitle} description={pageDescription} schema={[serviceSchema, breadcrumbSchema]} />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header" aria-label="Navegação principal">
+      <a class="brand" href="/" aria-label="ConverteUp início">
+        <span class="brand-mark">C</span>
+        <span>ConverteUp</span>
+      </a>
+      <nav>
+        <a href="/seo/">SEO</a>
+        <a href="/google-ads/">Google Ads</a>
+        <a href="/criacao-de-sites/">Criação de Sites</a>
+        <a href="/contato/">Contato</a>
+      </nav>
+      <CtaButton href={WHATSAPP_HREF} label="Solicitar diagnóstico" variant="secondary" />
+    </header>
+
+    <main id="conteudo">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="eyebrow">CRIAÇÃO DE SISTEMAS</p>
+          <h1 id="hero-title">
+            Sistemas para automatizar processos da sua empresa.
+          </h1>
+          <p class="hero__lead">
+            Criamos sistemas pensados para a operação da sua empresa — organizando informações,
+            automatizando tarefas e transformando processos repetitivos em fluxos mais simples.
+          </p>
+          <div class="hero__actions">
+            <CtaButton href={WHATSAPP_HREF} label="Quero avaliar meu processo" />
+          </div>
+          <ul class="hero__signals" aria-label="Prioridades do sistema">
+            <li>Automação</li>
+            <li>Controle</li>
+            <li>Integração</li>
+            <li>Eficiência</li>
+          </ul>
+        </div>
+
+        <aside class="operation-system" aria-label="Representação visual de sistema empresarial">
+          <div class="software-window" aria-hidden="true">
+            <div class="software-window__bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="software-app">
+              <div class="software-sidebar">
+                <strong>Operação</strong>
+                <span class="is-active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="software-main">
+                <div class="software-topline">
+                  <span></span>
+                  <small>Hoje</small>
+                </div>
+                <div class="software-metrics">
+                  <span><strong></strong><i></i></span>
+                  <span><strong></strong><i></i></span>
+                  <span><strong></strong><i></i></span>
+                </div>
+                <div class="software-workflow">
+                  <div class="workflow-list">
+                    <span><i></i><b></b><em></em></span>
+                    <span><i></i><b></b><em></em></span>
+                    <span><i></i><b></b><em></em></span>
+                    <span><i></i><b></b><em></em></span>
+                  </div>
+                  <div class="workflow-chart">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section problem-section" id="problema" aria-labelledby="problem-title">
+        <div class="section-header">
+          <p class="eyebrow">O PROBLEMA</p>
+          <h2 id="problem-title">Quando a operação cresce, o improviso começa a custar caro.</h2>
+        </div>
+        <div class="problem-grid" aria-label="Sinais de operação improvisada">
+          {problemSignals.map((item) => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section transformation" id="transformacao" aria-labelledby="transform-title">
+        <div class="section-header">
+          <p class="eyebrow">ANTES → DEPOIS</p>
+          <h2 id="transform-title">Seu processo primeiro. O sistema depois.</h2>
+          <p>
+            Em vez de adaptar sua operação a várias ferramentas, criamos um sistema que centraliza
+            o que realmente importa.
+          </p>
+        </div>
+        <div class="process-shift" aria-label="Comparação entre processo fragmentado e sistema organizado">
+          <article class="fragmented-side comparison-panel">
+            <span class="side-label">ANTES</span>
+            <div class="fragment-map" aria-label="Ferramentas desconectadas">
+              <span class="tool-node tool-node--sheet">Planilha</span>
+              <span class="tool-node tool-node--whatsapp">WhatsApp</span>
+              <span class="tool-node tool-node--email">E-mail</span>
+              <span class="tool-node tool-node--tasks">Tarefas</span>
+              <span class="tool-node tool-node--reports">Relatórios</span>
+              <span class="fragment-line fragment-line--a" aria-hidden="true"></span>
+              <span class="fragment-line fragment-line--b" aria-hidden="true"></span>
+              <span class="fragment-line fragment-line--c" aria-hidden="true"></span>
+            </div>
+            <ul class="shift-outcomes shift-outcomes--muted">
+              <li>Informação espalhada</li>
+              <li>Retrabalho</li>
+              <li>Processo manual</li>
+            </ul>
+          </article>
+          <article class="connected-side comparison-panel">
+            <span class="side-label">DEPOIS</span>
+            <div class="system-card">
+              <strong>SEU SISTEMA</strong>
+              <div class="system-modules">
+                <span>Clientes</span>
+                <span>Processos</span>
+                <span>Tarefas</span>
+                <span>Dados</span>
+                <span>Relatórios</span>
+                <span>Automação</span>
+              </div>
+            </div>
+            <ul class="shift-benefits">
+              <li>Operação centralizada</li>
+              <li>Dados conectados</li>
+              <li>Processo organizado</li>
+            </ul>
+          </article>
+          <p class="shift-summary">Várias ferramentas <span>→</span> uma operação centralizada</p>
+        </div>
+      </section>
+
+      <section class="section possibilities-section" id="possibilidades" aria-labelledby="possibilities-title">
+        <div class="section-header">
+          <p class="eyebrow">POSSIBILIDADES</p>
+          <h2 id="possibilities-title">O que podemos transformar em sistema.</h2>
+          <p>
+            Nem todo negócio precisa da mesma ferramenta. O sistema deve nascer do problema que
+            precisa ser resolvido.
+          </p>
+        </div>
+        <div class="possibilities-grid" aria-label="Exemplos de sistemas sob medida">
+          {possibilities.map((item, index) => (
+            <article>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section process-section" aria-labelledby="process-title">
+        <div class="section-header">
+          <p class="eyebrow">PROCESSO</p>
+          <h2 id="process-title">Primeiro entendemos o processo. Depois pensamos no sistema.</h2>
+        </div>
+        <ol class="process-line" aria-label="Etapas de criação de sistemas">
+          {processSteps.map((item) => (
+            <li>
+              <span>{item.step}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="section criteria-section" id="criterio" aria-labelledby="criteria-title">
+        <div class="section-header">
+          <p class="eyebrow">CRITÉRIO</p>
+          <h2 id="criteria-title">Nem todo problema precisa de um sistema próprio.</h2>
+          <p>
+            Se uma ferramenta pronta resolver bem o processo, criar software do zero pode ser
+            desperdício. O desenvolvimento faz sentido quando a operação possui necessidades
+            específicas, processos difíceis de adaptar ou trabalho manual que realmente justifica a
+            solução.
+          </p>
+        </div>
+        <div class="criteria-compare" aria-label="Critérios para avaliar um sistema próprio">
+          <article class="criteria-compare__side criteria-compare__side--fit">
+            <h3>Faz sentido quando</h3>
+            <ul>
+              {makesSense.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+          <article class="criteria-compare__side criteria-compare__side--wait">
+            <h3>Não faz sentido quando</h3>
+            <ul>
+              {doesNotMakeSense.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="final-cta" id="diagnostico" aria-labelledby="cta-title">
+        <div class="final-cta__copy">
+          <p class="eyebrow">DIAGNÓSTICO</p>
+          <h2 id="cta-title">Existe um processo na sua empresa que deveria funcionar melhor?</h2>
+          <p>
+            Conte como ele funciona hoje. Podemos analisar se faz sentido organizar, automatizar ou
+            transformar esse processo em um sistema.
+          </p>
+          <div class="final-cta__action">
+            <CtaButton
+              href={`mailto:${CONTACT_EMAIL}?subject=Avaliar%20processo%20para%20cria%C3%A7%C3%A3o%20de%20sistema`}
+              label="Avaliar meu processo"
+              dataCta="email"
+              dataConversion="primary-cta"
+            />
+            <small>Sem compromisso. Primeiro entendemos o problema.</small>
+          </div>
+        </div>
+        <aside class="diagnostic-panel" aria-label="O que podemos analisar no diagnóstico">
+          <h3>O que podemos analisar</h3>
+          <ol>
+            <li>
+              <div>
+                <strong>Processo</strong>
+                <p>Onde existem etapas desnecessárias.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Ferramentas</strong>
+                <p>Onde informações ficam espalhadas.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Trabalho manual</strong>
+                <p>O que pode ser automatizado.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Dados</strong>
+                <p>O que poderia estar centralizado.</p>
+              </div>
+            </li>
+          </ol>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="/" aria-label="ConverteUp início">
+        <span class="brand-mark">C</span>
+        <span>ConverteUp</span>
+      </a>
+      <p>
+        SEO, Google Ads, criação de sites e sistemas para empresas que precisam transformar procura,
+        processos e dados em crescimento.
+      </p>
+      <a class="text-link" href={WHATSAPP_HREF}>Avaliar processo</a>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --ink: #183153;
+    --ink-soft: rgba(31, 54, 92, 0.76);
+    --ink-muted: rgba(31, 54, 92, 0.56);
+    --paper: #eeebd3;
+    --paper-strong: #faf8ea;
+    --panel: rgba(255, 250, 240, 0.9);
+    --olive: #679436;
+    --moss: #5c946e;
+    --line: rgba(31, 54, 92, 0.15);
+    --shadow: 0 16px 42px rgba(31, 54, 92, 0.08);
+    --radius-button: 8px;
+    --radius-card: 8px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 72px;
+    --space-9: 96px;
+    --space-10: 128px;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Inter", "Segoe UI", sans-serif;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    min-width: 320px;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  strong {
+    font-family: "Manrope", "Segoe UI", sans-serif;
+    letter-spacing: 0;
+  }
+
+  h1 {
+    max-width: 13ch;
+    color: var(--ink);
+    font-size: 2.26rem;
+    font-weight: 800;
+    line-height: 1.02;
+  }
+
+  h2 {
+    max-width: 14ch;
+    color: var(--ink);
+    font-size: 2.16rem;
+    font-weight: 800;
+    line-height: 1.02;
+  }
+
+  h3 {
+    color: var(--ink);
+    font-size: 1.24rem;
+    font-weight: 800;
+    line-height: 1.12;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: var(--space-4);
+    left: var(--space-4);
+    z-index: 20;
+    transform: translateY(-160%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-button);
+    background: var(--olive);
+    color: #ffffff;
+    padding: var(--space-3) var(--space-4);
+    font-weight: 800;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .site-header,
+  .hero,
+  .section,
+  .final-cta,
+  .site-footer {
+    width: calc(100% - 40px);
+    max-width: 1180px;
+    margin-inline: auto;
+  }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-block: var(--space-5);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: 44px;
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    background: var(--olive);
+    color: #ffffff;
+    font-size: 0.95rem;
+  }
+
+  nav {
+    display: none;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  nav a,
+  .text-link,
+  .site-footer a:not(.brand) {
+    color: var(--ink-soft);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  .text-link:hover,
+  .site-footer a:not(.brand):hover {
+    color: var(--ink);
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-button);
+    background: var(--olive);
+    box-shadow: 6px 6px 0 var(--ink);
+    color: #ffffff;
+    font-weight: 800;
+    line-height: 1.15;
+    padding: var(--space-3) var(--space-5);
+    text-align: center;
+    text-decoration: none;
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease,
+      background 160ms ease;
+  }
+
+  .cta-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .cta-button--secondary {
+    background: var(--paper-strong);
+    box-shadow: none;
+    color: var(--ink);
+  }
+
+  .site-header .cta-button {
+    display: none;
+  }
+
+  .cta-button:focus-visible,
+  a:focus-visible {
+    outline: 3px solid rgba(111, 153, 52, 0.42);
+    outline-offset: 4px;
+  }
+
+  .eyebrow {
+    color: var(--moss);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    align-items: center;
+    padding-block: var(--space-7) var(--space-9);
+  }
+
+  .hero__copy {
+    display: grid;
+    gap: var(--space-5);
+    min-width: 0;
+  }
+
+  .hero__lead {
+    max-width: 61ch;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+    font-weight: 500;
+    line-height: 1.62;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .hero__signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    align-items: center;
+    margin: var(--space-1) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero__signals li {
+    color: var(--ink-muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero__signals li + li::before {
+    content: "/";
+    margin-inline: var(--space-3);
+    color: var(--olive);
+  }
+
+  .operation-system {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .software-window {
+    display: grid;
+    overflow: hidden;
+    width: min(100%, 640px);
+    margin-inline: auto;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-card);
+    background: var(--paper-strong);
+    box-shadow: 10px 10px 0 rgba(111, 153, 52, 0.5);
+  }
+
+  .software-window__bar {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    min-height: 48px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(31, 54, 92, 0.04);
+    padding-inline: var(--space-5);
+  }
+
+  .software-window__bar span {
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    background: var(--paper);
+  }
+
+  .software-window__bar span:first-child {
+    background: var(--olive);
+  }
+
+  .software-app {
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr);
+    min-height: 360px;
+  }
+
+  .software-sidebar {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    border-right: 1px solid var(--line);
+    background: rgba(31, 54, 92, 0.035);
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .software-sidebar strong {
+    color: var(--ink);
+    font-size: 0.9rem;
+    line-height: 1.1;
+  }
+
+  .software-sidebar span {
+    display: block;
+    width: 100%;
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(31, 54, 92, 0.13);
+  }
+
+  .software-sidebar .is-active {
+    background: var(--olive);
+  }
+
+  .software-main {
+    display: grid;
+    gap: var(--space-5);
+    align-content: start;
+    min-width: 0;
+    padding: var(--space-5);
+  }
+
+  .software-topline {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  .software-topline span {
+    width: min(100%, 260px);
+    height: 20px;
+    border-radius: 999px;
+    background: rgba(31, 54, 92, 0.16);
+  }
+
+  .software-topline small {
+    border: 1px solid rgba(31, 54, 92, 0.16);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    font-weight: 900;
+    padding: var(--space-1) var(--space-3);
+    text-transform: uppercase;
+  }
+
+  .software-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+
+  .software-metrics span {
+    display: grid;
+    gap: var(--space-3);
+    min-height: 78px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: #fffdf7;
+    padding: var(--space-4);
+  }
+
+  .software-metrics strong,
+  .software-metrics i,
+  .workflow-list b,
+  .workflow-list em {
+    display: block;
+    border-radius: 999px;
+    background: rgba(31, 54, 92, 0.14);
+  }
+
+  .software-metrics strong {
+    width: 44%;
+    height: 24px;
+    border-radius: 6px;
+    background: var(--ink);
+  }
+
+  .software-metrics span:nth-child(2) strong {
+    background: var(--olive);
+  }
+
+  .software-metrics i {
+    width: 78%;
+    height: 10px;
+  }
+
+  .software-workflow {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(108px, 0.85fr);
+    gap: var(--space-4);
+    align-items: stretch;
+  }
+
+  .workflow-list {
+    display: grid;
+    gap: var(--space-3);
+    min-width: 0;
+  }
+
+  .workflow-list span {
+    display: grid;
+    grid-template-columns: 12px minmax(0, 1fr) 58px;
+    gap: var(--space-3);
+    align-items: center;
+    min-height: 38px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .workflow-list i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--olive);
+  }
+
+  .workflow-list b {
+    height: 10px;
+  }
+
+  .workflow-list em {
+    height: 18px;
+    border-radius: 999px;
+    background: rgba(111, 153, 52, 0.2);
+  }
+
+  .workflow-chart {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: end;
+    gap: var(--space-2);
+    min-height: 160px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: #fffdf7;
+    padding: var(--space-4);
+  }
+
+  .workflow-chart i {
+    display: block;
+    border-radius: 6px 6px 0 0;
+    background: rgba(31, 54, 92, 0.82);
+  }
+
+  .workflow-chart i:nth-child(1) {
+    height: 42%;
+  }
+
+  .workflow-chart i:nth-child(2) {
+    height: 66%;
+    background: var(--olive);
+  }
+
+  .workflow-chart i:nth-child(3) {
+    height: 54%;
+  }
+
+  .workflow-chart i:nth-child(4) {
+    height: 82%;
+    background: var(--olive);
+  }
+
+  .section {
+    display: grid;
+    gap: var(--space-7);
+    padding-block: var(--space-8);
+  }
+
+  .section-header {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 830px;
+  }
+
+  .section-header p:not(.eyebrow) {
+    max-width: 690px;
+    color: var(--ink-soft);
+    font-size: 1.06rem;
+    line-height: 1.68;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-block: 1px solid var(--line);
+  }
+
+  .problem-grid article {
+    display: grid;
+    gap: var(--space-3);
+    border-bottom: 1px solid var(--line);
+    padding: var(--space-5) 0;
+  }
+
+  .problem-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .problem-grid h3 {
+    max-width: 12ch;
+  }
+
+  .problem-grid p,
+  .possibilities-grid p,
+  .process-line p {
+    color: var(--ink-soft);
+  }
+
+  .transformation {
+    max-width: none;
+    width: 100%;
+    background: var(--ink);
+    color: #ffffff;
+    padding-inline: max(20px, calc((100vw - 1180px) / 2));
+  }
+
+  .transformation h2 {
+    color: #ffffff;
+  }
+
+  .transformation .section-header p:not(.eyebrow) {
+    color: rgba(255, 255, 255, 0.76);
+    max-width: 54ch;
+  }
+
+  .transformation .eyebrow {
+    color: #d7e8bf;
+  }
+
+  .process-shift {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .comparison-panel {
+    display: grid;
+    gap: var(--space-4);
+    align-content: start;
+    min-width: 0;
+  }
+
+  .side-label {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .fragment-map {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-3);
+    align-items: center;
+    justify-items: center;
+    min-height: 264px;
+    isolation: isolate;
+    padding: var(--space-2) 0;
+  }
+
+  .tool-node {
+    position: relative;
+    z-index: 1;
+    display: inline-grid;
+    min-height: 44px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: var(--radius-button);
+    background: rgba(255, 250, 240, 0.06);
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.92rem;
+    font-weight: 800;
+    line-height: 1.1;
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .tool-node--sheet {
+    width: min(100%, 156px);
+  }
+
+  .tool-node--whatsapp {
+    width: min(100%, 156px);
+  }
+
+  .tool-node--email {
+    width: min(100%, 156px);
+  }
+
+  .tool-node--tasks {
+    width: min(100%, 156px);
+  }
+
+  .tool-node--reports {
+    width: min(100%, 156px);
+  }
+
+  .fragment-line {
+    position: absolute;
+    z-index: 0;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.18);
+    transform: none;
+  }
+
+  .fragment-line--a {
+    top: 52px;
+    left: 50%;
+    height: 30px;
+  }
+
+  .fragment-line--b {
+    top: 108px;
+    left: 50%;
+    height: 30px;
+  }
+
+  .fragment-line--c {
+    bottom: 72px;
+    left: 50%;
+    height: 30px;
+  }
+
+  .shift-outcomes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .shift-outcomes li {
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .system-card {
+    display: grid;
+    gap: var(--space-4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-card);
+    background: rgba(255, 250, 240, 0.06);
+    padding: var(--space-5);
+  }
+
+  .system-card strong {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: #ffffff;
+    font-size: 0.86rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .system-card strong::before {
+    width: 28px;
+    height: 3px;
+    background: var(--olive);
+    content: "";
+  }
+
+  .system-modules {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .system-modules span {
+    display: grid;
+    align-items: center;
+    min-height: 54px;
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(24, 49, 83, 0.28);
+    color: rgba(255, 255, 255, 0.86);
+    font-weight: 800;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .shift-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .shift-benefits li {
+    display: inline-flex;
+    gap: var(--space-2);
+    align-items: center;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.9rem;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .shift-benefits li::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--olive);
+    content: "";
+  }
+
+  .shift-summary {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.92rem;
+    font-weight: 800;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .shift-summary span {
+    color: var(--olive);
+    padding-inline: var(--space-2);
+  }
+
+  .possibilities-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-block: 1px solid var(--line);
+  }
+
+  .possibilities-grid article {
+    display: grid;
+    gap: var(--space-3);
+    border-bottom: 1px solid var(--line);
+    padding: var(--space-5) 0;
+  }
+
+  .possibilities-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .possibilities-grid span,
+  .process-line span {
+    color: var(--olive);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+
+  .process-line {
+    position: relative;
+    display: grid;
+    gap: var(--space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .process-line::before {
+    position: absolute;
+    top: var(--space-5);
+    bottom: var(--space-5);
+    left: 20px;
+    width: 1px;
+    background: var(--line);
+    content: "";
+  }
+
+  .process-line li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: start;
+    min-width: 0;
+    padding-block: var(--space-2);
+  }
+
+  .process-line span {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--paper);
+  }
+
+  .process-line h3,
+  .process-line p {
+    grid-column: 2;
+  }
+
+  .criteria-section {
+    width: min(1120px, calc(100% - 48px));
+    max-width: 1120px;
+    border-radius: var(--radius-card);
+    background: var(--paper-strong);
+    padding: clamp(2.25rem, 5vw, 4rem);
+  }
+
+  .criteria-compare {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .criteria-compare__side {
+    display: grid;
+    gap: var(--space-5);
+    padding-block: var(--space-5);
+  }
+
+  .criteria-compare__side + .criteria-compare__side {
+    border-top: 1px solid var(--line);
+  }
+
+  .criteria-compare ul {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .criteria-compare li {
+    position: relative;
+    border-top: 1px solid rgba(31, 54, 92, 0.1);
+    color: var(--ink-soft);
+    font-weight: 760;
+    padding: var(--space-4) 0 var(--space-4) var(--space-5);
+  }
+
+  .criteria-compare li:first-child {
+    border-top: 0;
+  }
+
+  .criteria-compare li::before {
+    position: absolute;
+    top: calc(var(--space-4) + 0.78em);
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border: 1px solid var(--ink);
+    background: rgba(31, 54, 92, 0.08);
+    content: "";
+    transform: translateY(-50%);
+  }
+
+  .criteria-compare__side--fit li::before {
+    background: var(--olive);
+  }
+
+  .final-cta {
+    display: grid;
+    gap: var(--space-6);
+    align-items: start;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-card);
+    margin-block: var(--space-8);
+    background: var(--ink);
+    color: #ffffff;
+    padding: var(--space-6);
+  }
+
+  .final-cta__copy {
+    display: grid;
+    gap: var(--space-4);
+    min-width: 0;
+  }
+
+  .final-cta h2 {
+    max-width: 18ch;
+    color: #ffffff;
+    font-size: clamp(2.05rem, 6.8vw, 3.25rem);
+    line-height: 1.02;
+  }
+
+  .final-cta p:not(.eyebrow) {
+    max-width: 52ch;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 1.06rem;
+  }
+
+  .final-cta__action {
+    display: grid;
+    gap: var(--space-3);
+    align-items: start;
+  }
+
+  .final-cta__action .cta-button {
+    width: fit-content;
+  }
+
+  .final-cta small {
+    color: rgba(255, 255, 255, 0.66);
+    font-weight: 800;
+  }
+
+  .diagnostic-panel {
+    display: grid;
+    gap: var(--space-4);
+    min-width: 0;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: var(--radius-card);
+    background: rgba(255, 250, 240, 0.06);
+    padding: var(--space-5);
+  }
+
+  .diagnostic-panel h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.12rem;
+    line-height: 1.15;
+  }
+
+  .diagnostic-panel ol {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .diagnostic-panel li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: var(--space-4);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .diagnostic-panel li:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .diagnostic-panel li:last-child {
+    padding-bottom: 0;
+  }
+
+  .diagnostic-panel strong {
+    display: block;
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .diagnostic-panel p {
+    margin: var(--space-1) 0 0;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.94rem;
+    line-height: 1.45;
+  }
+
+  .site-footer {
+    display: grid;
+    gap: var(--space-4);
+    border-top: 1px solid var(--line);
+    padding-block: var(--space-7);
+  }
+
+  .site-footer p {
+    max-width: 650px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 767px) {
+    .site-header,
+    .hero,
+    .final-cta,
+    .site-footer,
+    .section {
+      width: calc(100% - 40px);
+      max-width: none;
+    }
+
+    .transformation {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .criteria-section {
+      width: calc(100% - 40px);
+      padding: var(--space-6) var(--space-5);
+    }
+
+    .site-header {
+      flex-wrap: wrap;
+    }
+
+    .hero {
+      padding-top: var(--space-5);
+    }
+
+    .hero h1 {
+      max-width: 12ch;
+      font-size: 2.04rem;
+      line-height: 1.04;
+    }
+
+    .hero__copy,
+    .section-header {
+      max-width: 33ch;
+    }
+
+    .hero__lead {
+      max-width: 31ch;
+      font-size: 1rem;
+    }
+
+    .hero__actions .cta-button {
+      width: calc(100% - 8px);
+    }
+
+    .software-window {
+      width: min(100%, 350px);
+      margin-left: 0;
+      box-shadow: 7px 7px 0 rgba(111, 153, 52, 0.5);
+    }
+
+    .software-app {
+      grid-template-columns: 72px minmax(0, 1fr);
+      min-height: 318px;
+    }
+
+    .software-sidebar {
+      padding: var(--space-4) var(--space-3);
+    }
+
+    .software-sidebar strong {
+      font-size: 0.72rem;
+      overflow-wrap: anywhere;
+    }
+
+    .software-main {
+      gap: var(--space-4);
+      padding: var(--space-4);
+    }
+
+    .software-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .software-metrics span {
+      min-height: 42px;
+      padding: var(--space-3);
+    }
+
+    .software-workflow {
+      grid-template-columns: 1fr;
+    }
+
+    .workflow-chart {
+      min-height: 112px;
+    }
+
+    .workflow-list span {
+      grid-template-columns: 10px minmax(0, 1fr) 42px;
+    }
+
+    .final-cta__action .cta-button {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .problem-grid,
+    .possibilities-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .problem-grid article,
+    .possibilities-grid article {
+      padding: var(--space-5);
+    }
+
+    .problem-grid article:nth-child(2n),
+    .possibilities-grid article:nth-child(2n) {
+      border-left: 1px solid var(--line);
+    }
+
+    .problem-grid article:nth-child(n + 3),
+    .possibilities-grid article:nth-child(n + 3) {
+      border-top: 1px solid var(--line);
+    }
+
+    .problem-grid article,
+    .possibilities-grid article {
+      border-bottom: 0;
+    }
+
+    .criteria-compare {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .criteria-compare__side + .criteria-compare__side {
+      border-top: 0;
+      border-left: 1px solid var(--line);
+      padding-left: var(--space-6);
+    }
+
+    .criteria-compare__side--fit {
+      padding-right: var(--space-6);
+    }
+
+    .process-shift {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .shift-summary {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (min-width: 900px) {
+    body {
+      font-size: 1.07rem;
+    }
+
+    h1 {
+      font-size: 4.48rem;
+    }
+
+    h2 {
+      font-size: 3.75rem;
+    }
+
+    h3 {
+      font-size: 1.42rem;
+    }
+
+    nav,
+    .site-header .cta-button {
+      display: inline-flex;
+    }
+
+    .hero {
+      grid-template-columns: minmax(0, 1.02fr) minmax(390px, 0.98fr);
+      gap: var(--space-9);
+      align-items: center;
+      min-height: 760px;
+      padding-block: var(--space-7) var(--space-10);
+    }
+
+    .hero__lead {
+      font-size: 1.18rem;
+    }
+
+    .section {
+      padding-block: var(--space-9);
+    }
+
+    .problem-section {
+      grid-template-columns: 0.82fr 1.18fr;
+      align-items: start;
+      column-gap: var(--space-8);
+    }
+
+    .problem-grid {
+      margin-top: calc(0.78rem * 1.62 + var(--space-4));
+    }
+
+    .transformation {
+      grid-template-columns: 0.84fr 1.16fr;
+      column-gap: var(--space-9);
+      align-items: start;
+    }
+
+    .process-shift {
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .shift-summary {
+      grid-column: 1 / -1;
+    }
+
+    .possibilities-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .possibilities-grid article:nth-child(2n) {
+      border-left: 0;
+    }
+
+    .possibilities-grid article + article {
+      border-left: 1px solid var(--line);
+    }
+
+    .possibilities-grid article:nth-child(4) {
+      border-left: 0;
+    }
+
+    .process-line {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-5);
+      padding-top: var(--space-4);
+    }
+
+    .process-line::before {
+      top: 29px;
+      right: calc(var(--space-5) + 21px);
+      bottom: auto;
+      left: 21px;
+      width: auto;
+      height: 1px;
+    }
+
+    .process-line li {
+      grid-template-columns: 1fr;
+      align-content: start;
+      gap: var(--space-4);
+      padding-block: 0;
+    }
+
+    .process-line h3,
+    .process-line p {
+      grid-column: auto;
+    }
+
+    .final-cta {
+      grid-template-columns: minmax(0, 0.45fr) minmax(0, 0.55fr);
+      gap: var(--space-8);
+      align-items: center;
+      padding: var(--space-8);
+    }
+
+    .site-footer {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition: none !important;
+    }
+  }
+</style>

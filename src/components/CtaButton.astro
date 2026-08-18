@@ -3,10 +3,16 @@ interface Props {
   href: string;
   label: string;
   variant?: "primary" | "secondary";
+  dataCta?: string;
+  dataConversion?: string;
 }
 
-const { href, label, variant = "primary" } = Astro.props;
+const { href, label, variant = "primary", dataCta = "cta", dataConversion } = Astro.props;
 ---
 
-<a class={`cta-button cta-button--${variant}`} href={href}>{label}</a>
-
+<a
+  class={`cta-button cta-button--${variant}`}
+  href={href}
+  data-cta={dataCta}
+  data-conversion={dataConversion}
+>{label}</a>

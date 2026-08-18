@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import CtaButton from "./CtaButton.astro";
 import macbookImage from "../assets/images/hero/macbook.webp";
+import { WHATSAPP_HREF } from "../config/site.js";
 
 const channels = ["SEO", "Google Ads", "Sites", "Sistemas"];
 ---
@@ -9,31 +10,29 @@ const channels = ["SEO", "Google Ads", "Sites", "Sistemas"];
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__copy">
     <p class="eyebrow">ConverteUp</p>
-    <h1 id="hero-title">Canais previsiveis para empresas locais venderem mais.</h1>
+    <h1 id="hero-title">Canais previsíveis para empresas locais venderem mais.</h1>
     <h2 class="hero__lead">
       Não criamos apenas sites. Construímos estruturas preparadas para transformar buscas no Google
       em contatos, orçamentos e novos clientes.
     </h2>
 
-    <div class="hero__actions" aria-label="Acoes principais">
-      <CtaButton href="#contato" label="Quero atrair mais clientes" />
+    <div class="hero__actions" aria-label="Ações principais">
+      <CtaButton href={WHATSAPP_HREF} label="Quero atrair mais clientes" />
     </div>
 
-    <ul class="hero__channels" aria-label="Servicos principais">
+    <ul class="hero__channels" aria-label="Serviços principais">
       {channels.map((channel) => <li>{channel}</li>)}
     </ul>
   </div>
 
-  <figure class="hero__media" aria-label="Visual do metodo de aquisicao ConverteUp">
+  <figure class="hero__media" aria-label="Visual do método de aquisição ConverteUp">
     <Image
       src={macbookImage}
       width={760}
       format="webp"
       quality={82}
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-      alt="MacBook exibindo o metodo de aquisicao da ConverteUp"
+      priority
+      alt="MacBook exibindo o método de aquisição da ConverteUp"
     />
   </figure>
 </section>
@@ -82,7 +81,7 @@ const channels = ["SEO", "Google Ads", "Sites", "Sistemas"];
   .hero__lead {
     max-width: 62ch;
     color: var(--ink-soft);
-    font-family: "Archivo", "Segoe UI", sans-serif;
+    font-family: "Inter", "Segoe UI", sans-serif;
     font-size: 1.08rem;
     font-weight: 500;
     line-height: 1.58;
