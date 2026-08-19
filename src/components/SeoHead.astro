@@ -6,6 +6,7 @@ interface Props {
   ogImage?: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogType?: string;
   robots?: string;
   fontsHref?: string;
 }
@@ -19,6 +20,7 @@ const {
   ogImage,
   ogTitle = title,
   ogDescription = description,
+  ogType = "website",
   robots = DEFAULT_ROBOTS,
   fontsHref = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Manrope:wght@700;800&display=swap",
 } = Astro.props;
@@ -46,7 +48,7 @@ const schemaItems = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <meta property="og:title" content={ogTitle} />
 <meta property="og:description" content={ogDescription} />
-<meta property="og:type" content="website" />
+<meta property="og:type" content={ogType} />
 <meta property="og:url" content={canonical} />
 <meta property="og:site_name" content={SITE_NAME} />
 {absoluteOgImage && <meta property="og:image" content={absoluteOgImage} />}

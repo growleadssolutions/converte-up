@@ -1,0 +1,60 @@
+---
+import CtaButton from "./CtaButton.astro";
+import { WHATSAPP_HREF } from "../config/site.js";
+---
+
+<aside class="blog-cta" aria-labelledby="blog-cta-title">
+  <p class="eyebrow">Diagnóstico</p>
+  <h2 id="blog-cta-title">Vamos entender onde sua empresa pode crescer.</h2>
+  <p>
+    O primeiro passo é entender o cenário antes de recomendar qualquer solução.
+  </p>
+  <CtaButton href={WHATSAPP_HREF} label="Solicitar diagnóstico" />
+</aside>
+
+<style>
+  .blog-cta {
+    display: grid;
+    gap: var(--space-4);
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-card);
+    margin-top: var(--space-8);
+    background: var(--paper-strong);
+    box-shadow: 8px 8px 0 var(--olive);
+    padding: var(--space-6);
+  }
+
+  .blog-cta h2 {
+    max-width: 12ch;
+    margin: 0;
+    font-size: clamp(1.75rem, 6vw, 2.6rem);
+    line-height: 0.98;
+  }
+
+  .blog-cta p:not(.eyebrow) {
+    max-width: 58ch;
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+
+  .blog-cta :global(.cta-button) {
+    width: fit-content;
+  }
+
+  @media (max-width: 620px) {
+    .blog-cta {
+      padding: var(--space-5);
+    }
+
+    .blog-cta h2 {
+      max-width: 13ch;
+    }
+
+    .blog-cta :global(.cta-button) {
+      width: 100%;
+    }
+  }
+</style>
+

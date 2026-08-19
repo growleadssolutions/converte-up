@@ -1,0 +1,59 @@
+---
+import { BLOG_CATEGORIES } from "../lib/blog";
+
+interface Props {
+  activeSlug?: string;
+}
+
+const { activeSlug } = Astro.props;
+---
+
+<nav class="blog-category-nav" aria-label="Categorias do blog">
+  <a class:list={[{ "is-active": !activeSlug }]} href="/blog/">Todos</a>
+  {
+    BLOG_CATEGORIES.map((category) => (
+      <a class:list={[{ "is-active": activeSlug === category.slug }]} href={`/blog/${category.slug}/`}>
+        {category.name}
+      </a>
+    ))
+  }
+</nav>
+
+<style>
+  .blog-category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-7);
+  }
+
+  .blog-category-nav a {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-button);
+    background: rgba(250, 248, 234, 0.72);
+    color: var(--ink-soft);
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition:
+      border-color 180ms ease,
+      color 180ms ease,
+      background 180ms ease;
+  }
+
+  .blog-category-nav a:hover,
+  .blog-category-nav a.is-active {
+    border-color: var(--ink);
+    background: var(--paper-strong);
+    color: var(--ink);
+  }
+
+  @media (max-width: 620px) {
+    .blog-category-nav a {
+      flex: 1 1 auto;
+      text-align: center;
+    }
+  }
+</style>
+

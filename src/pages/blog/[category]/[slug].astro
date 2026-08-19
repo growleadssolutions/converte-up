@@ -1,0 +1,510 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import BlogCta from "../../../components/BlogCta.astro";
+import BlogFrame from "../../../components/BlogFrame.astro";
+import SeoHead from "../../../components/SeoHead.astro";
+import { absoluteUrl, organizationSchema } from "../../../config/site.js";
+import {
+  formatBlogDate,
+  getBlogCategoryPath,
+  getBlogCategorySlug,
+  getBlogPostPath,
+} from "../../../lib/blog";
+
+type BlogPost = CollectionEntry<"blog">;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => data.draft !== true);
+
+  return posts.map((post) => ({
+    params: {
+      category: getBlogCategorySlug(post.data.category),
+      slug: post.id,
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props as { post: BlogPost };
+const { Content } = await render(post);
+
+const allPublishedPosts = (await getCollection("blog", ({ data }) => data.draft !== true)).sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+);
+
+const relatedPosts = allPublishedPosts
+  .filter((candidate) => candidate.id !== post.id)
+  .map((candidate) => {
+    const categoryScore = candidate.data.category === post.data.category ? 10 : 0;
+    const tagScore = candidate.data.tags.filter((tag) => post.data.tags.includes(tag)).length;
+
+    return {
+      post: candidate,
+      score: categoryScore + tagScore,
+    };
+  })
+  .sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return b.post.data.publishDate.getTime() - a.post.data.publishDate.getTime();
+  })
+  .slice(0, 3)
+  .map((item) => item.post);
+
+const seoTitle = post.data.seoTitle ?? post.data.title;
+const seoDescription = post.data.seoDescription ?? post.data.description;
+const categoryPath = getBlogCategoryPath(post.data.category);
+const articlePath = getBlogPostPath(post);
+const articleUrl = absoluteUrl(articlePath);
+const imageUrl = post.data.image ? absoluteUrl(post.data.image) : undefined;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: absoluteUrl("/"),
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: absoluteUrl("/blog/"),
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: post.data.category,
+      item: absoluteUrl(categoryPath),
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: post.data.title,
+      item: articleUrl,
+    },
+  ],
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": articleUrl,
+  },
+  headline: post.data.title,
+  description: seoDescription,
+  datePublished: post.data.publishDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.publishDate).toISOString(),
+  author: {
+    "@type": "Organization",
+    name: post.data.author,
+  },
+  publisher: organizationSchema,
+  url: articleUrl,
+  ...(imageUrl ? { image: imageUrl } : {}),
+};
+
+const faqSchema =
+  post.data.enableFaqSchema && post.data.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.data.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }
+    : undefined;
+
+const schema = [organizationSchema, breadcrumbSchema, articleSchema, ...(faqSchema ? [faqSchema] : [])];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <SeoHead
+      title={seoTitle}
+      description={seoDescription}
+      ogTitle={seoTitle}
+      ogDescription={seoDescription}
+      ogImage={post.data.image}
+      ogType="article"
+      schema={schema}
+    />
+  </head>
+  <body>
+    <BlogFrame>
+      <article class="article-shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="/blog/">Blog</a>
+          <span aria-hidden="true">/</span>
+          <a href={categoryPath}>{post.data.category}</a>
+          <span aria-hidden="true">/</span>
+          <span>{post.data.title}</span>
+        </nav>
+
+        <header class="article-header">
+          <p class="eyebrow">{post.data.category}</p>
+          <h1>{post.data.title}</h1>
+          <p class="article-description">{post.data.description}</p>
+          <div class="article-meta">
+            <span>{post.data.author}</span>
+            <time datetime={post.data.publishDate.toISOString()}>
+              Publicado em {formatBlogDate(post.data.publishDate)}
+            </time>
+            {
+              post.data.updatedDate && (
+                <time datetime={post.data.updatedDate.toISOString()}>
+                  Atualizado em {formatBlogDate(post.data.updatedDate)}
+                </time>
+              )
+            }
+          </div>
+        </header>
+
+        {
+          post.data.image && (
+            <figure class="article-cover">
+              <img src={post.data.image} alt={post.data.imageAlt} decoding="async" />
+            </figure>
+          )
+        }
+
+        <div class="article-content">
+          <Content />
+        </div>
+
+        {
+          post.data.faq?.length && (
+            <section class="article-faq" aria-labelledby="article-faq-title">
+              <h2 id="article-faq-title">Dúvidas frequentes</h2>
+              <div class="article-faq__list">
+                {post.data.faq.map((item) => (
+                  <details>
+                    <summary>{item.question}</summary>
+                    <p>{item.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        <BlogCta />
+      </article>
+
+      {
+        relatedPosts.length > 0 && (
+          <section class="related-posts" aria-labelledby="related-title">
+            <div class="related-posts__header">
+              <p class="eyebrow">Relacionados</p>
+              <h2 id="related-title">Continue lendo</h2>
+            </div>
+            <div class="related-posts__grid">
+              {relatedPosts.map((related) => (
+                <article class="related-card">
+                  <p>{related.data.category}</p>
+                  <h3>
+                    <a href={getBlogPostPath(related)}>{related.data.title}</a>
+                  </h3>
+                  <span>{formatBlogDate(related.data.publishDate)}</span>
+                </article>
+              ))}
+            </div>
+          </section>
+        )
+      }
+    </BlogFrame>
+  </body>
+</html>
+
+<style>
+  .article-shell {
+    width: min(100%, 820px);
+    margin-inline: auto;
+    padding-block: var(--space-5) 0;
+  }
+
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-7);
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  .breadcrumb a {
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .article-header {
+    display: grid;
+    gap: var(--space-4);
+    margin-bottom: var(--space-7);
+  }
+
+  .article-header h1 {
+    max-width: 12ch;
+    margin: 0;
+    font-size: clamp(2.45rem, 10vw, 5.4rem);
+    line-height: 0.94;
+    overflow-wrap: anywhere;
+  }
+
+  .article-description {
+    max-width: 64ch;
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: clamp(1.08rem, 2.6vw, 1.32rem);
+    line-height: 1.75;
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-4);
+    color: var(--ink-muted);
+    font-size: 0.92rem;
+    font-weight: 800;
+  }
+
+  .article-meta > * {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .article-cover {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    margin: 0 0 var(--space-7);
+    background: var(--paper-strong);
+  }
+
+  .article-cover img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .article-content {
+    color: var(--ink);
+    font-size: 1.06rem;
+    line-height: 1.78;
+  }
+
+  .article-content :global(*) {
+    overflow-wrap: anywhere;
+  }
+
+  .article-content :global(h2),
+  .article-faq h2 {
+    margin: var(--space-8) 0 var(--space-4);
+    font-size: clamp(1.75rem, 5.6vw, 3rem);
+    line-height: 1.03;
+    overflow-wrap: anywhere;
+  }
+
+  .article-content :global(h3) {
+    margin: var(--space-6) 0 var(--space-3);
+    font-size: clamp(1.28rem, 4vw, 1.8rem);
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+  }
+
+  .article-content :global(p) {
+    margin: 0 0 var(--space-5);
+    color: var(--ink-soft);
+  }
+
+  .article-content :global(ul),
+  .article-content :global(ol) {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0 0 var(--space-6);
+    padding-left: var(--space-5);
+    color: var(--ink-soft);
+  }
+
+  .article-content :global(li::marker) {
+    color: var(--olive);
+    font-weight: 900;
+  }
+
+  .article-content :global(a) {
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration-color: var(--olive);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+  }
+
+  .article-content :global(strong) {
+    color: var(--ink);
+    font-weight: 900;
+  }
+
+  .article-content :global(blockquote) {
+    border-left: 4px solid var(--olive);
+    margin: 0 0 var(--space-6);
+    background: rgba(250, 248, 234, 0.7);
+    padding: var(--space-4) 0 var(--space-4) var(--space-5);
+  }
+
+  .article-content :global(blockquote p) {
+    margin: 0;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .article-content :global(img) {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    margin-block: var(--space-6);
+    background: var(--paper-strong);
+  }
+
+  .article-faq {
+    margin-top: var(--space-8);
+  }
+
+  .article-faq h2 {
+    margin-top: 0;
+  }
+
+  .article-faq__list {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .article-faq details {
+    border-top: 1px solid var(--line);
+    padding-block: var(--space-4);
+  }
+
+  .article-faq summary {
+    cursor: pointer;
+    color: var(--ink);
+    font-family: "Manrope", "Segoe UI", sans-serif;
+    font-weight: 800;
+  }
+
+  .article-faq p {
+    margin: var(--space-3) 0 0;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  .related-posts {
+    margin-top: var(--space-9);
+    padding-block: var(--space-7);
+  }
+
+  .related-posts__header {
+    display: grid;
+    gap: var(--space-2);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-4);
+  }
+
+  .related-posts__header h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    line-height: 1;
+  }
+
+  .related-posts__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: var(--space-4);
+  }
+
+  .related-card {
+    display: grid;
+    gap: var(--space-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--panel);
+    padding: var(--space-5);
+  }
+
+  .related-card p,
+  .related-card span {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 0.86rem;
+    font-weight: 800;
+  }
+
+  .related-card p {
+    color: var(--moss);
+  }
+
+  .related-card h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    line-height: 1.12;
+  }
+
+  .related-card h3 a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 620px) {
+    .article-shell {
+      width: calc(100% - 8px);
+      padding-top: var(--space-4);
+    }
+
+    .breadcrumb {
+      margin-bottom: var(--space-6);
+      font-size: 0.84rem;
+    }
+
+    .article-header h1 {
+      max-width: 8.7ch;
+      font-size: clamp(2.25rem, 13vw, 3.8rem);
+    }
+
+    .article-content {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .article-content :global(h2),
+    .article-faq h2 {
+      max-width: 12ch;
+      font-size: clamp(1.55rem, 8vw, 2.35rem);
+    }
+
+    .article-content :global(h3) {
+      font-size: clamp(1.2rem, 6vw, 1.65rem);
+    }
+
+    .article-content :global(blockquote) {
+      padding-left: var(--space-4);
+    }
+  }
+</style>
+
