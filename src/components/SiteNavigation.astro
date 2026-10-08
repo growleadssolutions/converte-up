@@ -1,0 +1,126 @@
+---
+const links = [
+  { href: "/seo/", label: "SEO" },
+  { href: "/google-ads/", label: "Google Ads" },
+  { href: "/criacao-de-sites/", label: "Criação de Sites" },
+  { href: "/criacao-de-sistemas/", label: "Sistemas" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/contato/", label: "Contato" },
+];
+const pathname = `${Astro.url.pathname.replace(/\/$/, "")}/`;
+const current = (href: string) => pathname === href ? "page" : pathname.startsWith(href) ? "true" : undefined;
+---
+
+<div class="site-navigation">
+  <nav class="site-navigation__desktop" aria-label="Menu principal">
+    {links.map(({ href, label }) => <a href={href} aria-current={current(href)}>{label}</a>)}
+  </nav>
+  <details class="site-navigation__mobile" data-site-menu>
+    <summary>
+      <span>Menu</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </summary>
+    <nav class="site-navigation__panel" aria-label="Menu principal móvel">
+      <a href="/" aria-current={pathname === "/" ? "page" : undefined}>Início</a>
+      {links.map(({ href, label }) => <a href={href} aria-current={current(href)}>{label}</a>)}
+    </nav>
+  </details>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLDetailsElement>("details[data-site-menu]").forEach((menu) => {
+    const trigger = menu.querySelector("summary");
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.open) {
+        menu.open = false;
+        trigger?.focus();
+      }
+    });
+    document.addEventListener("click", (event) => {
+      if (event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+    });
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => { menu.open = false; });
+    });
+    matchMedia("(min-width: 1100px)").addEventListener("change", () => { menu.open = false; });
+  });
+</script>
+
+<style>
+  :global(.site-header:has(.site-navigation)) {
+    position: relative;
+    z-index: 20;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .site-navigation { margin-left: auto; }
+  nav.site-navigation__desktop { display: none; }
+  details.site-navigation__mobile {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .site-navigation__mobile > summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--ink, #183153);
+    border-radius: 8px;
+    color: var(--ink, #183153);
+    background: var(--paper-strong, #faf8ea);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: pointer;
+    list-style: none;
+  }
+  .site-navigation__mobile > summary::-webkit-details-marker { display: none; }
+  .site-navigation__mobile > summary::after { content: none; }
+  .site-navigation__mobile[open] > summary { background: var(--paper, #eeebd3); }
+  nav.site-navigation__panel {
+    position: absolute;
+    inset: calc(100% - 8px) 0 auto;
+    display: grid;
+    align-items: stretch;
+    gap: 4px;
+    max-height: 70dvh;
+    overflow-y: auto;
+    padding: 12px;
+    border: 1px solid var(--ink, #183153);
+    border-radius: 8px;
+    background: var(--paper-strong, #faf8ea);
+  }
+  .site-navigation a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--ink, #183153);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .site-navigation__panel a { padding: 8px 12px; border-radius: 4px; }
+  .site-navigation__panel a:hover,
+  .site-navigation__panel a[aria-current] { background: var(--paper, #eeebd3); }
+  .site-navigation a[aria-current] { text-decoration: underline; text-underline-offset: 5px; }
+  .site-navigation a:focus-visible,
+  .site-navigation summary:focus-visible { outline: 2px solid var(--ink, #183153); outline-offset: 3px; }
+  @media (max-width: 1099px) {
+    :global(.site-header:has(.site-navigation) > .cta-button) { display: none; }
+  }
+  @media (min-width: 1100px) {
+    .site-navigation { margin-left: 0; }
+    nav.site-navigation__desktop { display: flex; align-items: center; gap: 16px; }
+    details.site-navigation__mobile { display: none; }
+  }
+</style>

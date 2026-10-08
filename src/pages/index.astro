@@ -1,4 +1,5 @@
 ---
+import SiteNavigation from "../components/SiteNavigation.astro";
 import CtaButton from "../components/CtaButton.astro";
 import HomeHero from "../components/HomeHero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
@@ -156,12 +157,7 @@ const pageDescription =
         <span class="brand-mark">C</span>
         <span>ConverteUp</span>
       </a>
-      <nav>
-        <a href="/seo/">SEO</a>
-        <a href="/google-ads/">Google Ads</a>
-        <a href="/criacao-de-sites/">Criação de Sites</a>
-        <a href="/contato/">Contato</a>
-      </nav>
+      <SiteNavigation />
       <CtaButton href={WHATSAPP_HREF} label="Solicitar diagnóstico" variant="secondary" />
     </header>
 
@@ -343,6 +339,11 @@ const pageDescription =
           <h2 id="case-title">Uma loja boa, mas difícil de encontrar.</h2>
         </div>
 
+        <aside class="case-image-notice" aria-label="Imagens pendentes do case Reecell">
+          <strong>Imagens pendentes</strong>
+          <p>Inserir aqui as capturas reais do site antigo e do site novo da Reecell para mostrar o antes e depois.</p>
+        </aside>
+
         <div class="case-story">
           <article class="case-frame case-frame--old">
             <div class="case-browser" aria-label="Representação do site antigo da Reecell">
@@ -438,7 +439,7 @@ const pageDescription =
         <ul class="contact__benefits" aria-label="Benefícios do diagnóstico inicial">
           <li>Análise de posicionamento</li>
           <li>Oportunidades de crescimento</li>
-          <li>Pontos que dificultam conversoes</li>
+          <li>Pontos que dificultam conversões</li>
           <li>Próximos passos recomendados</li>
         </ul>
 
@@ -468,6 +469,7 @@ const pageDescription =
 
       <section class="section faq" aria-labelledby="faq-title">
         <SectionHeader
+          id="faq-title"
           eyebrow="FAQ"
           title="Perguntas antes de começar."
           text="Respostas diretas para alinhar expectativa, escopo e prioridade."
@@ -1126,6 +1128,24 @@ const pageDescription =
   .case-study__intro h2 {
     max-width: 16ch;
     margin-inline: auto;
+  }
+
+  .case-image-notice {
+    display: grid;
+    gap: 8px;
+    padding: 20px 24px;
+    border: 1px dashed var(--ink-soft);
+    border-left: 4px solid var(--olive);
+    border-radius: var(--radius-card);
+    background: var(--paper-strong);
+  }
+
+  .case-image-notice strong {
+    color: var(--ink);
+  }
+
+  .case-image-notice p {
+    color: var(--ink-soft);
   }
 
   .case-story {

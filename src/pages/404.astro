@@ -1,4 +1,5 @@
 ---
+import SiteNavigation from "../components/SiteNavigation.astro";
 import CtaButton from "../components/CtaButton.astro";
 import SeoHead from "../components/SeoHead.astro";
 
@@ -20,13 +21,7 @@ const pageDescription =
         <span class="brand-mark">C</span>
         <span>ConverteUp</span>
       </a>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/criacao-de-sites/">Criacao de Sites</a>
-        <a href="/seo/">SEO</a>
-        <a href="/google-ads/">Google Ads</a>
-        <a href="/contato/">Contato</a>
-      </nav>
+      <SiteNavigation />
     </header>
 
     <main id="conteudo">
