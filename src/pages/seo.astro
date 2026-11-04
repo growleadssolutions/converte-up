@@ -1,5 +1,7 @@
 ---
 import SiteNavigation from "../components/SiteNavigation.astro";
+import PricingSection from "../components/PricingSection.astro";
+import { pricingFaqs } from "../config/pricing-faqs.js";
 import CtaButton from "../components/CtaButton.astro";
 import SeoHead from "../components/SeoHead.astro";
 import { CONTACT_EMAIL, WHATSAPP_HREF, absoluteUrl } from "../config/site.js";
@@ -109,6 +111,11 @@ const methodSteps = [
 ];
 
 const faqs = [
+  ...pricingFaqs,
+  {
+    question: "Quanto custa contratar SEO na ConverteUp?",
+    answer: "Site + estratégia de SEO inicial começa em R$ 2.500 por projeto. O SEO contínuo local é contratado separadamente, a partir de R$ 750/mês.",
+  },
   {
     question: "O que é SEO?",
     answer:
@@ -142,12 +149,7 @@ const faqs = [
   {
     question: "A ConverteUp produz conteúdos para blog?",
     answer:
-      "Sim. O conteúdo é planejado para responder dúvidas reais e apoiar páginas comerciais, não apenas preencher o blog com textos soltos.",
-  },
-  {
-    question: "É possível garantir a primeira posição no Google?",
-    answer:
-      "Não. Nenhuma empresa controla completamente o algoritmo, a concorrência ou o comportamento de busca. O trabalho correto é construir uma base consistente e acompanhar evolução com dados.",
+      "Sim, conforme a proposta. A quantidade de páginas trabalhadas e eventuais conteúdos novos são definidos na contratação; a oferta de SEO contínuo local não inclui produção ilimitada de conteúdo.",
   },
   {
     question: "Como os resultados de SEO são acompanhados?",
@@ -349,8 +351,8 @@ const pageDescription =
             <h3>Site estruturado com SEO</h3>
             <ul>
               <li>Tem estrutura pensada para busca, leitura e conversão.</li>
-              <li>Atrai clientes com intenção real de compra.</li>
-              <li>Gera mais contatos e oportunidades comerciais.</li>
+              <li>Busca alcançar pessoas com intenção real de compra.</li>
+              <li>Facilita o contato de potenciais clientes, sem garantia de resultados.</li>
               <li>Entrega mais valor porque conecta design, conteúdo e estratégia.</li>
             </ul>
           </article>
@@ -463,6 +465,8 @@ const pageDescription =
           </article>
         </div>
       </section>
+      <PricingSection />
+
       <section class="section faq" id="faq" aria-labelledby="faq-title">
         <div class="section-header">
           <p class="eyebrow">FAQ</p>

@@ -364,6 +364,46 @@ const schema = [organizationSchema, breadcrumbSchema, articleSchema, ...(faqSche
     font-weight: 900;
   }
 
+  .article-content :global(.article-table-wrap) {
+    max-width: 100%;
+    overflow-x: auto;
+    margin-bottom: var(--space-6);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--paper-strong);
+  }
+
+  .article-content :global(.article-table-wrap:focus-visible) {
+    outline: 3px solid var(--ink);
+    outline-offset: 4px;
+  }
+
+  .article-content :global(.article-table-wrap table) {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .article-content :global(.article-table-wrap caption) {
+    padding: 16px;
+    text-align: left;
+    font-weight: 800;
+  }
+
+  .article-content :global(.article-table-wrap th),
+  .article-content :global(.article-table-wrap td) {
+    padding: 16px;
+    border-top: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .article-content :global(.article-table-wrap thead) {
+    background: var(--ink);
+    color: var(--paper-strong);
+  }
+
   .article-content :global(blockquote) {
     border-left: 4px solid var(--olive);
     margin: 0 0 var(--space-6);

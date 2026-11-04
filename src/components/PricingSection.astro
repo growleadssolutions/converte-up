@@ -1,0 +1,127 @@
+---
+import CtaButton from "./CtaButton.astro";
+import { WHATSAPP_HREF } from "../config/site.js";
+
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+const offers = [
+  {
+    title: "Site profissional",
+    price: "R$ 1.500",
+    description: "Para pequenos negócios que precisam apresentar seus serviços e facilitar o contato de potenciais clientes.",
+    summary: "Até 5 páginas, layout responsivo, formulário, WhatsApp, SEO básico e duas rodadas de ajustes.",
+    items: [
+      "Até 5 páginas.",
+      "Layout adaptado para celular, tablet e computador.",
+      "Formulário de contato e botão de WhatsApp.",
+      "Configuração básica de SEO: títulos, descrições, hierarquia de headings e sitemap, conforme a plataforma.",
+      "Duas rodadas de ajustes.",
+    ],
+    cta: "Solicitar orçamento do site",
+    key: "site",
+  },
+  {
+    title: "Site + estratégia de SEO inicial",
+    price: "R$ 2.500",
+    description: "Para empresas que querem construir o site com uma estratégia de busca alinhada aos serviços e à região atendida.",
+    summary: "Tudo do Site profissional, mais pesquisa de palavras-chave, planejamento e redação de até 5 páginas, links internos, Search Console e mensuração conforme plataforma e acessos.",
+    items: [
+      "Pesquisa de palavras-chave relacionadas ao negócio e à região.",
+      "Planejamento das páginas por serviço e intenção de busca, dentro do limite de 5 páginas.",
+      "Redação e otimização dos textos dessas páginas com base nas informações fornecidas pelo cliente.",
+      "Links internos entre as páginas.",
+      "Configuração do Google Search Console e da mensuração de contatos, conforme os recursos da plataforma e os acessos disponibilizados.",
+    ],
+    cta: "Solicitar orçamento de site com SEO",
+    key: "site-seo",
+  },
+];
+---
+
+<section class="pricing" id="investimento" aria-labelledby="pricing-title">
+  <header class="pricing__header">
+    <p class="eyebrow">Investimento</p>
+    <h2 id="pricing-title">Quanto custa contratar a ConverteUp?</h2>
+    <p>Compare os escopos e escolha o ponto de partida para o seu negócio.</p>
+  </header>
+  <div class="pricing__projects">
+    {offers.map((offer) => (
+      <article class="pricing__card">
+        <p class="pricing__kind">Projeto de site</p>
+        <h3>{offer.title}</h3>
+        <p class="pricing__price">A partir de <strong>{offer.price}</strong><span>por projeto</span></p>
+        <p>{offer.description}</p>
+        {compact ? <p>{offer.summary}</p> : (
+          <div>
+            <p><strong>{offer.key === "site" ? "Inclui:" : "Inclui tudo do Site profissional, mais:"}</strong></p>
+            <ul>{offer.items.map((item) => <li>{item}</li>)}</ul>
+          </div>
+        )}
+        <div class="pricing__action">
+          <CtaButton href={WHATSAPP_HREF} label={offer.cta} dataCta={`pricing-${offer.key}`} dataConversion="whatsapp" />
+        </div>
+      </article>
+    ))}
+  </div>
+  {compact && <a class="pricing__link" href="/criacao-de-sites/#investimento">Ver os escopos completos de criação de sites →</a>}
+  <aside class="pricing__monthly" aria-labelledby="monthly-title">
+    <div>
+      <p class="pricing__kind">Contratação complementar · mensal</p>
+      <h3 id="monthly-title">SEO contínuo local</h3>
+      <p class="pricing__price">A partir de <strong>R$ 750<span>/mês</span></strong></p>
+      <p>Para negócios que precisam acompanhar o desempenho e melhorar sua presença nas buscas ao longo do tempo.</p>
+    </div>
+    <div class="pricing__monthly-scope">
+      <p>Escopo inicial voltado a <strong>um serviço principal e uma cidade</strong>. Inclui acompanhamento do Search Console, revisão mensal de desempenho e melhorias priorizadas nas páginas existentes.</p>
+      <p>Quantidade de páginas trabalhadas e eventuais conteúdos novos devem ser definidos na proposta.</p>
+      <CtaButton href={WHATSAPP_HREF} label="Conversar sobre SEO mensal" variant="secondary" dataCta="pricing-seo-monthly" dataConversion="whatsapp" />
+      {compact && <a class="pricing__link" href="/seo/#investimento">Conhecer o serviço de SEO →</a>}
+    </div>
+  </aside>
+  <div class="pricing__terms">
+    <h3>Condições comerciais</h3>
+    <ul>
+      <li>Valores iniciais para os escopos apresentados; o orçamento final depende das necessidades do projeto.</li>
+      <li>Pagamento dos projetos: 50% no início e 50% na entrega.</li>
+      <li>Domínio, hospedagem e licenças pagas são cobrados à parte.</li>
+      <li>Lojas virtuais, sistemas, integrações complexas e páginas adicionais exigem orçamento específico.</li>
+      <li>SEO inicial é uma entrega do projeto. Acompanhamento contínuo é contratado separadamente.</li>
+      <li>SEO não garante posições específicas, tráfego ou vendas.</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .pricing { width: calc(100% - 40px); max-width: 1180px; margin-inline: auto; padding-block: var(--space-8); border-top: 1px solid var(--line); scroll-margin-top: 100px; }
+  .pricing__header { max-width: 720px; margin-bottom: 32px; }
+  .pricing__header h2 { margin: 12px 0 20px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.08; }
+  .pricing p, .pricing li { line-height: 1.65; }
+  .pricing__projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .pricing__card { display: flex; flex-direction: column; gap: 20px; padding: 32px; border: 1px solid var(--ink); border-radius: var(--radius-card); background: var(--paper-strong); }
+  .pricing h3 { font-size: 1.5rem; line-height: 1.2; }
+  .pricing__kind { font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+  .pricing .pricing__price { line-height: 1.25; }
+  .pricing__price strong { display: block; font-size: clamp(2.25rem, 4vw, 3rem); letter-spacing: -.04em; margin: 6px 0; }
+  .pricing__price span { font-size: 1rem; font-weight: 400; letter-spacing: 0; }
+  .pricing ul { margin: 12px 0 0; padding-left: 22px; }
+  .pricing li + li { margin-top: 10px; }
+  .pricing__action { margin-top: auto; padding-top: 8px; }
+  .pricing :global(.cta-button) { max-width: 100%; white-space: normal; background: var(--ink); color: var(--paper-strong); }
+  .pricing__action :global(.cta-button) { width: 100%; }
+  .pricing__monthly { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; margin-top: 32px; padding: 32px; border: 1px solid var(--line); border-left: 5px solid var(--olive); border-radius: var(--radius-card); }
+  .pricing__monthly h3 { margin: 12px 0 20px; }
+  .pricing__monthly .pricing__price { margin-bottom: 20px; }
+  .pricing__monthly-scope { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+  .pricing__monthly :global(.cta-button) { background: var(--paper-strong); color: var(--ink); }
+  .pricing__terms { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .pricing__terms h3 { font-size: 1.2rem; }
+  .pricing__terms ul { columns: 2; column-gap: 48px; }
+  .pricing__terms li { break-inside: avoid; }
+  .pricing__link { display: inline-block; margin-top: 20px; color: var(--ink); font-weight: 700; text-underline-offset: 4px; }
+  .pricing__monthly-scope .pricing__link { margin: 0; }
+  @media (max-width: 760px) {
+    .pricing__projects, .pricing__monthly { grid-template-columns: 1fr; }
+    .pricing__card, .pricing__monthly { padding: 24px; }
+    .pricing__terms ul { columns: 1; }
+  }
+</style>

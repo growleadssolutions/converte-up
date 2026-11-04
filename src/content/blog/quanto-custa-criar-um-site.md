@@ -16,13 +16,49 @@ seoTitle: "Quanto custa criar um site? Preços, tipos e o que avaliar"
 seoDescription: "Veja quanto custa criar um site, quais fatores influenciam o preço e como avaliar um projeto profissional para sua empresa."
 faq:
   - question: "Quanto custa um site profissional?"
-    answer: "O custo depende do tipo de site, número de páginas, personalização, conteúdo, integrações, SEO, prazo e manutenção. Um site simples costuma ter escopo menor; um projeto profissional envolve estratégia, estrutura, copy, performance e acompanhamento."
+    answer: "Na ConverteUp, a criação de um site profissional começa em R$ 1.500. Projetos com estratégia de SEO inicial começam em R$ 2.500. Ambos contemplam até 5 páginas; o orçamento final depende das necessidades do projeto. Acompanhamento contínuo é contratado separadamente."
   - question: "Landing page é mais barata que site institucional?"
     answer: "Em muitos casos, sim, porque costuma ter uma única página e um objetivo específico. Mas o preço também depende da profundidade da estratégia, design, conteúdo e integrações."
   - question: "Vale a pena contratar o site mais barato?"
     answer: "Nem sempre. Se o site não comunica bem, não carrega rápido, não aparece no Google ou não gera contatos, o barato pode atrasar a aquisição de clientes."
 enableFaqSchema: true
 ---
+
+**Na ConverteUp, a criação de um site profissional começa em R$ 1.500. Projetos com estratégia de SEO inicial começam em R$ 2.500.**
+
+## O que está incluído nesses valores?
+
+### Site profissional — a partir de R$ 1.500 por projeto
+
+Para pequenos negócios que precisam apresentar seus serviços e facilitar o contato de potenciais clientes. Inclui:
+
+- Até 5 páginas.
+- Layout adaptado para celular, tablet e computador.
+- Formulário de contato e botão de WhatsApp.
+- Configuração básica de SEO: títulos, descrições, hierarquia de headings e sitemap, conforme a plataforma.
+- Duas rodadas de ajustes.
+
+### Site + estratégia de SEO inicial — a partir de R$ 2.500 por projeto
+
+Para empresas que querem construir o site com uma estratégia de busca alinhada aos serviços e à região atendida. Inclui tudo do Site profissional, mais:
+
+- Pesquisa de palavras-chave relacionadas ao negócio e à região.
+- Planejamento das páginas por serviço e intenção de busca, dentro do limite de 5 páginas.
+- Redação e otimização dos textos dessas páginas com base nas informações fornecidas pelo cliente.
+- Links internos entre as páginas.
+- Configuração do Google Search Console e da mensuração de contatos, conforme os recursos da plataforma e os acessos disponibilizados.
+
+Veja os [escopos e solicite um orçamento de criação de sites](/criacao-de-sites/#investimento).
+
+### Condições e acompanhamento separado
+
+Os valores são iniciais para os escopos apresentados; o orçamento final depende das necessidades do projeto. O pagamento dos projetos é de **50% no início e 50% na entrega**. Domínio, hospedagem e licenças pagas são cobrados à parte. Lojas virtuais, sistemas, integrações complexas e páginas adicionais exigem orçamento específico.
+
+SEO inicial é uma entrega do projeto. Acompanhamento contínuo é contratado separadamente. O [SEO contínuo local começa em R$ 750/mês](/seo/#investimento), com escopo inicial voltado a um serviço principal e uma cidade. Inclui acompanhamento do Search Console, revisão mensal de desempenho e melhorias priorizadas nas páginas existentes. Quantidade de páginas trabalhadas e eventuais conteúdos novos devem ser definidos na proposta.
+
+SEO não garante posições específicas, tráfego ou vendas.
+
+## Como comparar o investimento em um site?
 
 Quem pesquisa **quanto custa criar um site** normalmente quer uma resposta direta, mas o preço de um projeto depende do que o site precisa fazer pela empresa. Um site simples para presença institucional não tem o mesmo escopo de uma página feita para gerar leads, ranquear no Google e apoiar campanhas de tráfego pago.
 

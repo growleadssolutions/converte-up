@@ -1,5 +1,7 @@
 ---
 import SiteNavigation from "../components/SiteNavigation.astro";
+import PricingSection from "../components/PricingSection.astro";
+import { pricingFaqs } from "../config/pricing-faqs.js";
 import CtaButton from "../components/CtaButton.astro";
 import HomeHero from "../components/HomeHero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
@@ -117,10 +119,11 @@ const strategyComparison = [
 ];
 
 const faqs = [
+  ...pricingFaqs,
   {
     question: "A ConverteUp faz apenas o layout?",
     answer:
-      "Não. O site é tratado como uma peça comercial: posicionamento, texto, estrutura, SEO, velocidade e conversão entram no escopo.",
+      "Não. O Site profissional inclui até 5 páginas, layout responsivo, contato e SEO básico. Pesquisa de palavras-chave, planejamento e redação fazem parte do projeto com estratégia de SEO inicial.",
   },
   {
     question: "Dá para aproveitar um site existente?",
@@ -130,7 +133,7 @@ const faqs = [
   {
     question: "O site já sai pronto para anúncios e SEO?",
     answer:
-      "A estrutura nasce preparada para campanhas, indexação e mensuração. Resultados dependem de oferta, mercado, consistência e concorrência.",
+      "O site inclui SEO básico. Search Console e mensuração de contatos integram o projeto com SEO inicial, conforme plataforma e acessos. SEO não garante posições específicas, tráfego ou vendas.",
   },
 ];
 
@@ -333,6 +336,8 @@ const pageDescription =
           {services.map((service) => <ServiceCard {...service} />)}
         </div>
       </section>
+      <PricingSection compact />
+
       <section class="section case-study" id="confianca" aria-labelledby="case-title">
         <div class="case-study__intro">
           <p class="eyebrow">Case Reecell</p>

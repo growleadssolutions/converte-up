@@ -2,6 +2,7 @@
 title: "Google Ads ou Meta Ads: qual escolher para um negócio local?"
 description: "Compare busca ativa e descoberta da oferta para escolher um canal de anúncios coerente com seu serviço, sua região e sua capacidade de atendimento."
 publishDate: 2026-10-07
+updatedDate: 2026-11-04
 author: "ConverteUp"
 category: "Google Ads"
 tags: [Google Ads, Meta Ads, Negócios locais, Planejamento]
@@ -63,6 +64,6 @@ Inclua tempo de atendimento e produção de materiais no planejamento. Confira t
 
 Escolha um serviço, descreva o público e estabeleça qual resultado comercial justificaria continuar o teste. Registre os motivos de perda e revise a mensagem quando os contatos não entenderem a oferta.
 
-Este comparativo não é um tutorial de configuração da Meta nem representa uma oferta de gestão de Meta Ads pela ConverteUp. Se você quer avaliar a captação de procura na pesquisa, conheça a [gestão de Google Ads da ConverteUp](/google-ads/).
+Para avaliar a captação de procura na pesquisa, conheça a [gestão de Google Ads da ConverteUp](/google-ads/). Para pousadas, restaurantes e pequenos negócios em Bombinhas, veja o serviço de [gestão de tráfego pago com Google Ads e Meta Ads](/trafego-pago-bombinhas/) e os [exemplos de planejamento da verba de mídia](/blog/google-ads/quanto-custa-anunciar-empresa-bombinhas/).
 
 [Quero avaliar se Google Ads faz sentido para meu negócio local.](https://wa.me/5541991816988?text=Quero%20avaliar%20se%20Google%20Ads%20faz%20sentido%20para%20meu%20negocio%20local.)

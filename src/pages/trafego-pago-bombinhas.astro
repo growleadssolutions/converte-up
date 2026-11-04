@@ -1,0 +1,139 @@
+---
+import BlogFrame from "../components/BlogFrame.astro";
+import CtaButton from "../components/CtaButton.astro";
+import SeoHead from "../components/SeoHead.astro";
+import { absoluteUrl, WHATSAPP_HREF } from "../config/site.js";
+
+const articlePath = "/blog/google-ads/quanto-custa-anunciar-empresa-bombinhas/";
+const steps = [
+  ["Diagnóstico", "Entendemos a operação, os serviços, a disponibilidade e como os contatos são atendidos hoje."],
+  ["Planejamento", "Definimos objetivo, canal, público, período e verba de mídia compatíveis com o orçamento e a capacidade de atendimento."],
+  ["Configuração", "Organizamos campanhas, anúncios, destinos e mensuração conforme os materiais, recursos da plataforma e acessos disponíveis."],
+  ["Acompanhamento", "Observamos gastos, contatos e qualidade das oportunidades, com retorno da equipe sobre reservas e pedidos."],
+  ["Melhorias", "Ajustamos públicos, mensagens e distribuição da verba conforme os dados e as mudanças na operação."],
+];
+const faqs = [
+  ["Quanto custa a gestão?", "Solicite uma proposta conforme seu negócio e orçamento. A remuneração da gestão é separada da verba paga às plataformas; criativos ou página de destino podem exigir escopo adicional."],
+  ["Preciso anunciar no Google e no Instagram ao mesmo tempo?", "Não. Um orçamento menor pode exigir foco em um canal e um objetivo. A escolha depende da oferta, dos materiais e da forma de atendimento."],
+  ["Posso anunciar mesmo sem um sistema de reservas?", "Podemos avaliar o WhatsApp ou o site como destino. O caminho precisa permitir que sua equipe confirme disponibilidade, condições e próximos passos."],
+  ["Há garantia de reservas ou vendas?", "Não. Anúncios não garantem posição, quantidade de contatos, reservas, vendas ou retorno. Oferta, disponibilidade e atendimento também influenciam o resultado."],
+];
+const schema = [
+  {
+    "@context": "https://schema.org", "@type": "Service",
+    name: "Gestão de tráfego pago em Bombinhas",
+    serviceType: "Gestão de campanhas no Google Ads e Meta Ads",
+    areaServed: { "@type": "City", name: "Bombinhas" },
+    provider: { "@type": "Organization", name: "ConverteUp", url: absoluteUrl("/") },
+    url: absoluteUrl("/trafego-pago-bombinhas/"),
+    description: "Planejamento e acompanhamento de anúncios para pequenos negócios, pousadas e restaurantes em Bombinhas.",
+  },
+  {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Tráfego pago em Bombinhas", item: absoluteUrl("/trafego-pago-bombinhas/") },
+    ],
+  },
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+  },
+];
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <SeoHead title="Gestão de tráfego pago em Bombinhas | ConverteUp" description="Google Ads e Meta Ads para pousadas, restaurantes e pequenos negócios em Bombinhas. Planejamento, acompanhamento e proposta conforme seu orçamento." schema={schema} />
+  </head>
+  <body>
+    <BlogFrame>
+      <section class="local-hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Google Ads + Meta Ads · Bombinhas</p>
+          <h1 id="hero-title">Gestão de tráfego pago em Bombinhas para divulgar seu negócio</h1>
+          <p class="lead">Anúncios planejados para a realidade de quem precisa receber consultas, pedidos e oportunidades de reserva — com orçamento e capacidade de atendimento no centro da decisão.</p>
+          <CtaButton href={WHATSAPP_HREF} label="Conversar sobre meu negócio" dataCta="bombinhas-hero" dataConversion="whatsapp" />
+        </div>
+        <aside class="planning-card" aria-labelledby="planning-title">
+          <p class="eyebrow">Antes de colocar verba</p>
+          <h2 id="planning-title">O anúncio precisa caber na operação.</h2>
+          <dl>
+            <div><dt>O que divulgar?</dt><dd>Uma oferta clara, com disponibilidade real.</dd></div>
+            <div><dt>Para quem?</dt><dd>Quem pode se deslocar, reservar ou pedir dentro da área atendida.</dd></div>
+            <div><dt>Para onde levar?</dt><dd>WhatsApp, site ou sistema de reservas preparado para o próximo passo.</dd></div>
+          </dl>
+          <a href={articlePath}>Entenda mídia, gestão e orçamento →</a>
+        </aside>
+      </section>
+
+      <section class="local-section" aria-labelledby="business-title">
+        <p class="eyebrow">Aplicações por negócio</p>
+        <h2 id="business-title">Uma pousada e um restaurante precisam de planos diferentes.</h2>
+        <div class="two-columns">
+          <article class="local-card"><h3>Pousadas</h3><p>Campanhas voltadas a consultas de disponibilidade e pedidos de reserva. Datas, tipos de acomodação, condições e forma de confirmação precisam estar claros.</p><p>Quem está planejando uma viagem pode estar fora da cidade. Avaliamos esse deslocamento e o período da estadia, sem limitar o planejamento apenas a quem já está perto da pousada.</p></article>
+          <article class="local-card"><h3>Restaurantes</h3><p>Divulgação, pedidos e contatos conforme a operação: salão, retirada, entrega ou reservas de mesa, quando disponíveis.</p><p>A área atendida, o deslocamento até o estabelecimento, os horários e a capacidade da cozinha orientam a campanha. Não faz sentido divulgar uma entrega que o restaurante não consegue realizar.</p></article>
+        </div>
+        <p>Em períodos de maior ocupação, podemos priorizar datas ou horários ainda disponíveis. Quando a procura diminui, a oferta precisa continuar viável considerando margem, equipe e custos. O calendário do próprio negócio orienta os ajustes.</p>
+      </section>
+
+      <section class="local-section" aria-labelledby="channels-title">
+        <p class="eyebrow">Escolha dos canais</p>
+        <h2 id="channels-title">Google Ads ou Meta Ads? Depende do próximo passo.</h2>
+        <div class="two-columns">
+          <article class="local-card"><h3>Google Ads</h3><p>Na Pesquisa, os anúncios podem se relacionar com buscas por hospedagem ou alimentação. Avaliamos termos, região e página de destino para aproximar a oferta daquilo que a pessoa procura.</p><a href="https://support.google.com/google-ads/answer/1704373?hl=pt-BR">Como funciona a exibição no Google</a></article>
+          <article class="local-card"><h3>Meta Ads</h3><p>Facebook e Instagram permitem apresentar a oferta com materiais do negócio. Há anúncios que abrem uma conversa no WhatsApp; o formato e a configuração dependem do objetivo e dos recursos disponíveis.</p><a href="https://whatsappbusiness.com/products/ads-that-click-to-whatsapp/?lang=en">Anúncios para WhatsApp: orientação da Meta</a></article>
+        </div>
+        <p>A gestão pode trabalhar com um ou ambos os canais. Verba pequena pode exigir concentração em uma oferta e um objetivo, em vez de divisão automática entre plataformas.</p>
+      </section>
+
+      <section class="local-section" aria-labelledby="process-title">
+        <p class="eyebrow">Como trabalhamos</p><h2 id="process-title">Do diagnóstico às melhorias.</h2>
+        <ol class="local-process">{steps.map(([title, text], index) => <li><span aria-hidden="true">0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
+      </section>
+
+      <section class="local-section" aria-labelledby="measurement-title">
+        <p class="eyebrow">Mensuração</p><h2 id="measurement-title">Contato não é venda confirmada.</h2>
+        <p>Configuramos a mensuração conforme os acessos e recursos disponíveis no site, nas contas e no sistema de reservas ou pedidos. Se um sistema externo não permitir integração, explicitamos essa limitação e combinamos um registro pela equipe.</p>
+        <ol class="contact-path" aria-label="Etapas que devem ser acompanhadas separadamente"><li>Clique no contato</li><li>Conversa recebida</li><li>Pedido ou reserva em análise</li><li>Venda confirmada pela operação</li></ol>
+        <p>Uma ação registrada na plataforma não comprova faturamento. Acompanhamos também disponibilidade, motivos de perda e cancelamentos informados pelo negócio para orientar as decisões.</p>
+      </section>
+
+      <section class="investment local-section" id="proposta" aria-labelledby="investment-title">
+        <p class="eyebrow">Investimento transparente</p><h2 id="investment-title">Mídia e gestão são valores separados.</h2>
+        <div class="two-columns"><div><h3>Verba de mídia</h3><p>Valor pago diretamente ao Google ou à Meta para veicular os anúncios.</p></div><div><h3>Gestão</h3><p>Remuneração da ConverteUp pelo planejamento e acompanhamento das campanhas, conforme o escopo da proposta.</p></div></div>
+        <p>Produção de criativos ou página de destino pode exigir contratação adicional, definida na proposta. O valor da gestão não está tabelado.</p>
+        <p class="proposal">Solicite uma proposta conforme seu negócio e orçamento.</p>
+        <CtaButton href={WHATSAPP_HREF} label="Conversar sobre uma proposta" dataCta="bombinhas-proposal" dataConversion="whatsapp" />
+        <p><a href={articlePath}>Veja exemplos de organização da verba de mídia</a>.</p>
+      </section>
+
+      <section class="local-section local-faq" aria-labelledby="faq-title"><h2 id="faq-title">Dúvidas antes de anunciar</h2>{faqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}</section>
+    </BlogFrame>
+  </body>
+</html>
+<style>
+  .local-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; padding-block: 64px 80px; }
+  h1 { font-size: clamp(2.1rem, 4.5vw, 3.7rem); line-height: 1.08; margin: 16px 0 24px; }
+  h2 { font-size: clamp(1.75rem, 3vw, 2.65rem); line-height: 1.15; max-width: 27ch; margin: 12px 0 28px; }
+  h3 { font-size: 1.3rem; line-height: 1.25; margin: 0 0 12px; }
+  p { line-height: 1.75; }
+  .lead { font-size: 1.15rem; margin-bottom: 28px; }
+  .planning-card { padding: 32px; border: 1px solid var(--ink); border-radius: var(--radius-card); background: var(--paper-strong); box-shadow: 8px 8px 0 var(--olive); }
+  .planning-card h2 { font-size: 2rem; }
+  dl { margin: 24px 0; } dl div { border-top: 1px solid var(--line); padding: 16px 0; } dt { font-weight: 800; } dd { margin: 8px 0 0; }
+  .local-section { border-top: 1px solid var(--line); padding-block: 56px; }
+  .two-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .local-card { background: var(--paper-strong); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 28px; }
+  .local-process { list-style: none; padding: 0; display: grid; gap: 20px; }
+  .local-process li { display: flex; gap: 24px; border-bottom: 1px solid var(--line); padding: 16px 0; }
+  .local-process span { font-size: 1.6rem; font-weight: 800; } .local-process p { margin: 0; }
+  .contact-path { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; padding-left: 24px; }
+  .contact-path li { padding: 12px; font-weight: 700; }
+  .investment { padding: 36px; background: var(--paper-strong); border: 1px solid var(--ink); border-radius: var(--radius-card); }
+  .proposal { font-weight: 800; font-size: 1.25rem; }
+  a { text-underline-offset: 4px; font-weight: 700; }
+  :global(.local-hero .cta-button), :global(.investment .cta-button) { background: var(--ink); max-width: 100%; text-align: center; }
+  .local-faq { margin-top: 56px; } details { border-bottom: 1px solid var(--line); padding: 20px 0; } summary { cursor: pointer; font-weight: 800; } summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+  @media(max-width: 760px) { .local-hero, .two-columns { grid-template-columns: 1fr; } .local-hero { padding-block: 32px 48px; gap: 32px; } .contact-path { grid-template-columns: 1fr; gap: 0; } .planning-card, .local-card, .investment { padding: 24px; } .local-section { padding-block: 40px; } .investment { padding: 24px; } }
+</style>

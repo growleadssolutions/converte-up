@@ -2,6 +2,7 @@
 title: "Quanto custa anunciar no Google Ads?"
 description: "Entenda quanto custa anunciar no Google, o que influencia o orçamento e como pequenas empresas devem avaliar investimento."
 publishDate: 2026-08-31
+updatedDate: 2026-11-04
 author: "ConverteUp"
 category: "Google Ads"
 tags:
@@ -107,6 +108,8 @@ Cliques não pagam conta. Acompanhe:
 Uma campanha mais cara por clique pode ser melhor se gera contatos mais qualificados.
 
 ## Próximo passo
+
+Se você administra uma pousada, restaurante ou outro pequeno negócio na cidade, veja [quanto custa anunciar uma empresa em Bombinhas](/blog/google-ads/quanto-custa-anunciar-empresa-bombinhas/), com simulações apenas de verba de mídia e decisões sobre disponibilidade e atendimento.
 
 O custo para anunciar no Google depende do mercado e da execução. Antes de aumentar orçamento, organize campanha, página, conversões e atendimento.
 

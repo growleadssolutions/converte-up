@@ -1,5 +1,7 @@
 ---
 import SiteNavigation from "../components/SiteNavigation.astro";
+import PricingSection from "../components/PricingSection.astro";
+import { pricingFaqs } from "../config/pricing-faqs.js";
 import CtaButton from "../components/CtaButton.astro";
 import SeoHead from "../components/SeoHead.astro";
 import { CONTACT_EMAIL, WHATSAPP_HREF, absoluteUrl } from "../config/site.js";
@@ -18,7 +20,7 @@ const processSteps = [
   {
     step: "03",
     title: "Copy",
-    text: "Escrevemos a mensagem comercial para explicar valor, reduzir dúvida e levar ao próximo passo.",
+    text: "No projeto com SEO inicial, redigimos os textos a partir das informações fornecidas pelo cliente.",
   },
   {
     step: "04",
@@ -33,12 +35,12 @@ const processSteps = [
   {
     step: "06",
     title: "Publicação",
-    text: "Publicamos com rastreamento, formulário, WhatsApp, analytics e pontos básicos de segurança.",
+    text: "Publicamos com formulário e WhatsApp. A mensuração de contatos integra o projeto com SEO inicial, conforme plataforma e acessos.",
   },
   {
     step: "07",
     title: "Evolução",
-    text: "Medimos comportamento, buscas, contatos e gargalos para melhorar o canal depois do lançamento.",
+    text: "O acompanhamento após a entrega é contratado separadamente, com melhorias e páginas trabalhadas definidas na proposta.",
   },
 ];
 
@@ -82,10 +84,11 @@ const deliverables = [
 ];
 
 const faqs = [
+  ...pricingFaqs,
   {
     question: "Quanto custa criar um site profissional?",
     answer:
-      "Depende da quantidade de páginas, nível de copy, integrações e estratégia de SEO. Antes de passar valor, avaliamos objetivo comercial, concorrência e o que o site precisa entregar para gerar contatos qualificados.",
+      "O Site profissional começa em R$ 1.500 por projeto. Site + estratégia de SEO inicial começa em R$ 2.500 por projeto. Ambos incluem até 5 páginas.",
   },
   {
     question: "Quanto tempo demora?",
@@ -115,7 +118,7 @@ const faqs = [
   {
     question: "Vocês fazem manutenção?",
     answer:
-      "Sim. Podemos acompanhar melhorias, conteúdo, ajustes técnicos, novas páginas e leitura dos dados depois da publicação.",
+      "Sim, em contratação separada. O SEO contínuo local começa em R$ 750/mês, voltado inicialmente a um serviço principal e uma cidade. Páginas trabalhadas e eventuais conteúdos novos são definidos na proposta.",
   },
   {
     question: "O site será rápido?",
@@ -303,11 +306,10 @@ const pageDescription =
       <section class="section deliverables" id="entregas" aria-labelledby="deliverables-title">
         <div class="deliverables__intro">
           <p class="eyebrow">ENTREGAS</p>
-          <h2 id="deliverables-title">Tudo que seu site precisa para atrair, convencer e converter.</h2>
+          <h2 id="deliverables-title">Recursos conforme o escopo do seu projeto.</h2>
           <p>
-            Cada entrega existe para reduzir o atrito entre a busca do cliente e o primeiro contato
-            com sua empresa. A tecnologia fica nos bastidores; o resultado aparece na experiência,
-            na velocidade e nas oportunidades geradas.
+            O Site profissional inclui a estrutura e o SEO básico. Planejamento por intenção de busca,
+            redação e mensuração fazem parte do projeto com SEO inicial. Confira os escopos e valores abaixo.
           </p>
         </div>
         <ol class="deliverables-strip" aria-label="Principais entregas do site">
@@ -325,11 +327,11 @@ const pageDescription =
           </li>
           <li>
             <strong>Medir</strong>
-            <p>Analytics, Clarity e melhoria contínua baseada em comportamento.</p>
+            <p>Mensuração no projeto com SEO inicial, conforme plataforma e acessos. Acompanhamento contínuo à parte.</p>
           </li>
         </ol>
         <p class="deliverables-footnote">
-          Google Business, blog otimizado e estrutura escalável completam a base.
+          Google Business, blog, ferramentas adicionais e novas páginas devem ter seu escopo definido em proposta específica.
         </p>
       </section>
 
@@ -367,6 +369,8 @@ const pageDescription =
           </article>
         </div>
       </section>
+      <PricingSection />
+
       <section class="section faq" id="faq" aria-labelledby="faq-title">
         <div class="section-header">
           <p class="eyebrow">FAQ</p>
