@@ -344,32 +344,11 @@ const pageDescription =
           <h2 id="case-title">Uma loja boa, mas difícil de encontrar.</h2>
         </div>
 
-        <aside class="case-image-notice" aria-label="Imagens pendentes do case Reecell">
-          <strong>Imagens pendentes</strong>
-          <p>Inserir aqui as capturas reais do site antigo e do site novo da Reecell para mostrar o antes e depois.</p>
-        </aside>
-
         <div class="case-story">
           <article class="case-frame case-frame--old">
-            <div class="case-browser" aria-label="Representação do site antigo da Reecell">
-              <div class="case-browser__bar">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="case-browser__body">
-                <div class="case-old-hero"></div>
-                <div class="case-old-lines">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div class="case-old-grid">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
+            <div class="case-browser">
+              <img class="case-screenshot" src="/images/cases/reecell-site-antigo.png"
+                alt="Site antigo da ReeCell, com vitrine de produtos e acessórios." width="1400" height="876" loading="lazy" decoding="async" />
             </div>
             <p>O site existia, mas funcionava como vitrine. A Reecell dependia de indicações e recorrência enquanto perdia espaço nas buscas locais.</p>
           </article>
@@ -382,28 +361,9 @@ const pageDescription =
           </div>
 
           <article class="case-frame case-frame--new">
-            <div class="case-browser" aria-label="Representação do site novo da Reecell">
-              <div class="case-browser__bar">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="case-browser__body">
-                <div class="case-new-layout">
-                  <div class="case-new-copy">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <strong></strong>
-                  </div>
-                  <div class="case-new-phone"></div>
-                </div>
-                <div class="case-new-services">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
+            <div class="case-browser">
+              <img class="case-screenshot" src="/images/cases/reecell-site-novo.png"
+                alt="Site novo da ReeCell, com destaque para assistência técnica de celulares em Bombinhas." width="1867" height="940" loading="lazy" decoding="async" />
             </div>
             <p>O site deixou de ser vitrine e virou canal de aquisição: páginas por serviço, SEO local, Google Business Profile, blog e campanhas conectadas.</p>
           </article>
@@ -1135,22 +1095,10 @@ const pageDescription =
     margin-inline: auto;
   }
 
-  .case-image-notice {
-    display: grid;
-    gap: 8px;
-    padding: 20px 24px;
-    border: 1px dashed var(--ink-soft);
-    border-left: 4px solid var(--olive);
-    border-radius: var(--radius-card);
-    background: var(--paper-strong);
-  }
-
-  .case-image-notice strong {
-    color: var(--ink);
-  }
-
-  .case-image-notice p {
-    color: var(--ink-soft);
+  .case-screenshot {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .case-story {
